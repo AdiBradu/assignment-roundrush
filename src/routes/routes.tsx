@@ -7,7 +7,8 @@ import AuthPage from '../pages/AuthPage/AuthPage';
 const routes = [
   {
     path: '/',
-    element: <HomePage />,
+    redirect: 'auth/login',
+    element: <AuthPage />,
   },
   {
     path: 'auth/login',
@@ -42,4 +43,5 @@ const routes = [
     element: <NoPage />,
   },
 ];
+
 export default routes;

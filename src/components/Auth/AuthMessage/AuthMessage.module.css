@@ -1,0 +1,15 @@
+.authMessage {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 24px;
+  /* or 200% */
+  text-align: center;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  max-width: 40ch;
+  /* Default / Primary */
+  color: #4c84ff;
+  margin-top: 26px;
+}

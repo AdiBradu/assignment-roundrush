@@ -1,10 +1,8 @@
 import HomePage from '../pages/HomePage/HomePage';
-import LoginPage from '../pages/LoginPage/LoginPage';
-import SignUpPage from '../pages/SignUpPage/SignUpPage';
-import PasswordRecoveryPage from '../pages/PasswordRecoveryPage/PasswordRecoveryPage';
 import WorkspacePage from '../pages/Workspace/WorkspacePage';
 import DashboardPage from '../pages/DashboardPage/DashboardPage';
 import NoPage from '../pages/404Page/404Page';
+import AuthPage from '../pages/AuthPage/AuthPage';
 
 const routes = [
   {
@@ -12,16 +10,16 @@ const routes = [
     element: <HomePage />,
   },
   {
-    path: '/login',
-    element: <LoginPage />,
+    path: 'auth/login',
+    element: <AuthPage />,
   },
   {
-    path: '/sign-up',
-    element: <SignUpPage />,
+    path: 'auth/sign-up',
+    element: <AuthPage />,
   },
   {
-    path: '/password-recovery',
-    element: <PasswordRecoveryPage />,
+    path: 'auth/password-recovery',
+    element: <AuthPage />,
   },
   {
     path: '/workspace/info',

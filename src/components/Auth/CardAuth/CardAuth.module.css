@@ -1,0 +1,14 @@
+.cardAuth {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 540px;
+  height: 370px;
+  padding: 47px 98px 58px 98px;
+  border-radius: 6px;
+  background-color: #ffffff;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-top: 57px;
+}

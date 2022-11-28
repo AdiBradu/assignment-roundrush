@@ -9,15 +9,22 @@ import theme from './styles/themeCustomization';
 //Routing
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import routes from './routes/routes';
+
+//Redux
+import { Provider } from 'react-redux';
+import store from './redux/store';
+
 const router = createBrowserRouter(routes);
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <div className="App">
-        <RouterProvider router={router} />
-      </div>
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <div className="App">
+          <RouterProvider router={router} />
+        </div>
+      </ThemeProvider>
+    </Provider>
   );
 }
 

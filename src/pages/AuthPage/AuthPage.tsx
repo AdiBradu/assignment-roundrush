@@ -13,7 +13,13 @@ function AuthPage() {
   return (
     <div className={styles.background}>
       <RoundrushLogo />
-      <AuthMessage />
+      <AuthMessage
+        message={
+          route.pathname === '/auth/sign-up'
+            ? 'sign up a new account'
+            : 'the optimized workflow out of the box'
+        }
+      />
       {route.pathname === '/auth/sign-up' ? (
         <CardSignup />
       ) : route.pathname === '/auth/password-recovery' ? (

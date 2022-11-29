@@ -1,16 +1,16 @@
 import React from 'react';
 import { Button } from '@mui/material';
 
-interface BUTTON_NEXT {
+interface BUTTON_PASSWORD_RECOVERY {
   onClick: (event: React.MouseEvent) => void;
 }
 
-function ButtonNext({ onClick }: BUTTON_NEXT) {
+const ButtonPasswordRecovery = ({ onClick }: BUTTON_PASSWORD_RECOVERY) => {
   return (
     <Button fullWidth variant="login" disableElevation onClick={onClick}>
-      Next
+      Recover your password
     </Button>
   );
-}
+};
 
-export default ButtonNext;
+export default ButtonPasswordRecovery;

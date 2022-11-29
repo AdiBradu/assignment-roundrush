@@ -1,16 +1,33 @@
 import { ActionTypes } from '../actions/actionTypes';
-import { Action } from '../actions/actions';
+import { LoginUserAction } from '../actions/actions';
 
-const initialstate = {
-  user: null,
+interface InitialState {
+  credentials: {
+    email: string;
+    password: string;
+  };
+  isLoggedIn: boolean;
+}
+
+const initialstate: InitialState = {
+  credentials: {
+    email: '',
+    password: '',
+  },
+  isLoggedIn: false,
 };
 
-const reducer = (state = initialstate, action: Action) => {
+const reducer = (state = initialstate, action: LoginUserAction) => {
   switch (action.type) {
-    case ActionTypes.LOGIN:
+    case ActionTypes.SET_USER:
       return {
         ...state,
-        user: action.payload.user,
+        credentials: action.payload.credentials,
+      };
+    case ActionTypes.SET_AUTHENTICATED:
+      return {
+        ...state,
+        isLoggedIn: action.payload.isLoggedIn,
       };
     default:
       return state;

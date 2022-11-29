@@ -3,22 +3,36 @@ import React from 'react';
 import { OutlinedInput } from '@mui/material';
 
 type InputNoLabelProps = {
+  name: string;
   type: string;
   placeholder: string;
+  value: string;
+  autoComplete: string;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-function InputNoLabel({ type, placeholder }: InputNoLabelProps) {
+const InputNoLabel = ({
+  name,
+  type,
+  placeholder,
+  value,
+  autoComplete,
+  onChange,
+}: InputNoLabelProps) => {
   return (
     <>
       {/* <Input fullWidth type="text" placeholder="your email" /> */}
       <OutlinedInput
         fullWidth
+        name={name}
         type={type}
         placeholder={placeholder}
-        autoComplete="off"
+        value={value}
+        autoComplete={autoComplete}
+        onChange={onChange}
       />
     </>
   );
-}
+};
 
 export default InputNoLabel;

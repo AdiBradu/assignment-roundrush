@@ -1,4 +1,3 @@
-import React from 'react';
 import './App.css';
 import './styles/reset.css';
 
@@ -7,21 +6,33 @@ import { ThemeProvider } from '@mui/material';
 import theme from './styles/themeCustomization';
 
 //Routing
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import routes from './routes/routes';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import PrivateRoutes from './routes/PrivateRoutes';
+import { protectedRoutes, publicRoutes } from './routes/routes';
 
 //Redux
 import { Provider } from 'react-redux';
 import store from './redux/store';
 
-const router = createBrowserRouter(routes);
+// const router = createBrowserRouter(routes);
 
 function App() {
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <div className="App">
-          <RouterProvider router={router} />
+          <Router>
+            <Routes>
+              <Route element={<PrivateRoutes />}>
+                {protectedRoutes.map((route) => (
+                  <Route element={route.element} path={route.path} />
+                ))}
+              </Route>
+              {publicRoutes.map((route) => (
+                <Route element={route.element} path={route.path} />
+              ))}
+            </Routes>
+          </Router>
         </div>
       </ThemeProvider>
     </Provider>

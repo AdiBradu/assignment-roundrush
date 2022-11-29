@@ -1,25 +1,12 @@
-import HomePage from '../pages/HomePage/HomePage';
 import WorkspacePage from '../pages/Workspace/WorkspacePage';
 import DashboardPage from '../pages/DashboardPage/DashboardPage';
 import NoPage from '../pages/404Page/404Page';
 import AuthPage from '../pages/AuthPage/AuthPage';
 
-const routes = [
+const protectedRoutes = [
   {
     path: '/',
     redirect: 'auth/login',
-    element: <AuthPage />,
-  },
-  {
-    path: 'auth/login',
-    element: <AuthPage />,
-  },
-  {
-    path: 'auth/sign-up',
-    element: <AuthPage />,
-  },
-  {
-    path: 'auth/password-recovery',
     element: <AuthPage />,
   },
   {
@@ -38,10 +25,25 @@ const routes = [
     path: '/dashboard/:project',
     element: <DashboardPage />,
   },
+];
+
+const publicRoutes = [
+  {
+    path: 'auth/login',
+    element: <AuthPage />,
+  },
+  {
+    path: 'auth/sign-up',
+    element: <AuthPage />,
+  },
+  {
+    path: 'auth/password-recovery',
+    element: <AuthPage />,
+  },
   {
     path: '*',
     element: <NoPage />,
   },
 ];
 
-export default routes;
+export { protectedRoutes, publicRoutes };

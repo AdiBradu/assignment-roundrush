@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import styles from './CardLogin.module.css';
 import CardAuth from '../CardAuth/CardAuth';
+import CardHeader from '../CardHeader/CardHeader';
+import CardBody from '../CardBody/CardBody';
+import CardFooter from '../CardFooter/CardFooter';
 import CardTitle from '../CardTitle/CardTitle';
 import ButtonLogin from '../../Buttons/ButtonLogin/ButtonLogin';
 import InputNoLabel from '../../Inputs/InputNoLabel/InputNoLabel';
-import ButtonForgotPassword from '../../Buttons/ButtonForgotPassword/ButtonForgotPassword';
-import ButtonNoAccount from '../../Buttons/ButtonNoAccount/ButtonNoAccount';
+import ButtonText from '../../Buttons/ButtonText/ButtonText';
 import { useDispatch } from 'react-redux';
 import { ActionCreators } from '../../../redux/actions/actions';
 import { useNavigate, Link } from 'react-router-dom';
@@ -39,8 +40,11 @@ const CardLogin = () => {
 
   return (
     <CardAuth>
-      <CardTitle title="Login" />
-      <div className={styles.loginGroup}>
+      <CardHeader>
+        <CardTitle title="Login" />
+      </CardHeader>
+
+      <CardBody>
         <InputNoLabel
           name="email"
           type="email"
@@ -58,15 +62,16 @@ const CardLogin = () => {
           onChange={handleChange}
         />
         <ButtonLogin onClick={handleLogin} />
-      </div>
-      <div className={styles.textButtons}>
+      </CardBody>
+
+      <CardFooter>
         <Link to="/auth/password-recovery">
-          <ButtonForgotPassword />
+          <ButtonText text="I forgot my password" />
         </Link>
         <Link to="/auth/sign-up">
-          <ButtonNoAccount />
+          <ButtonText text="I don't have an account" />
         </Link>
-      </div>
+      </CardFooter>
     </CardAuth>
   );
 };

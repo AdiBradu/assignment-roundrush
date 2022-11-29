@@ -35,6 +35,7 @@ const CardLogin = () => {
 
       dispatch(ActionCreators.setAuthenicated(true));
       navigate('/workspace/info');
+    } else {
     }
   };
 
@@ -52,6 +53,7 @@ const CardLogin = () => {
           value={credentials.email}
           autoComplete="off"
           onChange={handleChange}
+          required={true}
         />
         <InputNoLabel
           name="password"
@@ -60,6 +62,7 @@ const CardLogin = () => {
           value={credentials.password}
           autoComplete="off"
           onChange={handleChange}
+          required={true}
         />
         <ButtonLogin onClick={handleLogin} />
       </CardBody>

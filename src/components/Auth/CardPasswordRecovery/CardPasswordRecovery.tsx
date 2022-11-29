@@ -35,6 +35,7 @@ function CardPasswordRecovery() {
           value={email}
           autoComplete="off"
           onChange={handleChange}
+          required={true}
         />
         <ButtonPasswordRecovery onClick={handleClick} />
       </CardBody>

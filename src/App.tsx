@@ -24,12 +24,16 @@ function App() {
           <Router>
             <Routes>
               <Route element={<PrivateRoutes />}>
-                {protectedRoutes.map((route) => (
-                  <Route element={route.element} path={route.path} />
+                {protectedRoutes.map((route, index) => (
+                  <Route
+                    key={index}
+                    element={route.element}
+                    path={route.path}
+                  />
                 ))}
               </Route>
-              {publicRoutes.map((route) => (
-                <Route element={route.element} path={route.path} />
+              {publicRoutes.map((route, index) => (
+                <Route key={index} element={route.element} path={route.path} />
               ))}
             </Routes>
           </Router>

@@ -2,14 +2,15 @@ import React from 'react';
 
 import { OutlinedInput } from '@mui/material';
 
-type InputNoLabelProps = {
+interface InputNoLabelProps {
   name: string;
   type: string;
   placeholder: string;
   value: string;
   autoComplete: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-};
+  required: boolean;
+}
 
 const InputNoLabel = ({
   name,
@@ -18,10 +19,10 @@ const InputNoLabel = ({
   value,
   autoComplete,
   onChange,
+  required,
 }: InputNoLabelProps) => {
   return (
     <>
-      {/* <Input fullWidth type="text" placeholder="your email" /> */}
       <OutlinedInput
         fullWidth
         name={name}
@@ -30,6 +31,7 @@ const InputNoLabel = ({
         value={value}
         autoComplete={autoComplete}
         onChange={onChange}
+        required={required}
       />
     </>
   );

@@ -1,34 +1,22 @@
 import { ActionTypes } from './actionTypes';
-interface SET_USER {
+interface LOGIN_USER_DATA {
   credentials: {
     email: string;
     password: string;
   };
-}
-
-interface SET_AUTHENTICATED {
   isLoggedIn: boolean;
 }
 
-interface SET_USER_ACTION {
-  type: ActionTypes.SET_USER;
-  payload: SET_USER;
-}
-
-interface SET_AUTHENTICATED_ACTION {
-  type: ActionTypes.SET_AUTHENTICATED;
-  payload: SET_AUTHENTICATED;
+interface LOGIN_USER_ACTION {
+  type: ActionTypes.LOGIN_USER;
+  payload: LOGIN_USER_DATA;
 }
 
 export const ActionCreators = {
-  setUser: (credentials: SET_USER) => ({
-    type: ActionTypes.SET_USER,
-    payload: credentials,
-  }),
-  setAuthenicated: (isLoggedIn: boolean) => ({
-    type: ActionTypes.SET_AUTHENTICATED,
-    payload: { isLoggedIn },
+  loginUser: (user: LOGIN_USER_DATA) => ({
+    type: ActionTypes.LOGIN_USER,
+    payload: user,
   }),
 };
 
-export type LoginUserAction = SET_USER_ACTION | SET_AUTHENTICATED_ACTION;
+export type LoginUserAction = LOGIN_USER_ACTION;

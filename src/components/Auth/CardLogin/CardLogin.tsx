@@ -10,32 +10,31 @@ import ButtonText from '../../Buttons/ButtonText/ButtonText';
 import { useDispatch } from 'react-redux';
 import { ActionCreators } from '../../../redux/actions/actions';
 import { useNavigate, Link } from 'react-router-dom';
-import dummyUser from '../../../data/user';
 
 const CardLogin = () => {
-  const [credentials, setCredentials] = useState({ email: '', password: '' });
-
+  const [user, setUser] = useState({
+    credentials: { email: '', password: '' },
+    isLoggedIn: false,
+  });
+  console.log(user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  // const isLoggedIn
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setCredentials({ ...credentials, [event.target.name]: event.target.value });
+    setUser((user) => ({
+      ...user,
+      credentials: {
+        ...user.credentials,
+        [event.target.name]: event.target.value,
+      },
+      isLoggedIn: true,
+    }));
   };
 
   const handleLogin = () => {
-    if (
-      dummyUser.email === credentials.email &&
-      dummyUser.password === credentials.password
-    ) {
-      dispatch(
-        ActionCreators.setUser({
-          credentials,
-        }),
-      );
-
-      dispatch(ActionCreators.setAuthenicated(true));
-      navigate('/workspace/info');
-    }
+    dispatch(ActionCreators.loginUser(user));
+    navigate('/workspace/info');
   };
 
   return (
@@ -49,7 +48,7 @@ const CardLogin = () => {
           name="email"
           type="email"
           placeholder="your email"
-          value={credentials.email}
+          value={user.credentials.email}
           autoComplete="off"
           onChange={handleChange}
         />
@@ -57,7 +56,7 @@ const CardLogin = () => {
           name="password"
           type="password"
           placeholder="password"
-          value={credentials.password}
+          value={user.credentials.password}
           autoComplete="off"
           onChange={handleChange}
         />

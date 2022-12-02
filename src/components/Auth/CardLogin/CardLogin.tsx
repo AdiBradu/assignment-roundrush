@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CardAuth from '../CardAuth/CardAuth';
 import CardHeader from '../CardHeader/CardHeader';
 import CardBody from '../CardBody/CardBody';
@@ -7,19 +7,25 @@ import CardTitle from '../CardTitle/CardTitle';
 import ButtonLogin from '../../Buttons/ButtonLogin/ButtonLogin';
 import InputNoLabel from '../../Inputs/InputNoLabel/InputNoLabel';
 import ButtonText from '../../Buttons/ButtonText/ButtonText';
-import { useDispatch } from 'react-redux';
-import { ActionCreators } from '../../../redux/actions/actions';
+import { useAppDispatch, useAppSelector } from '../../../hooks/hooks';
 import { useNavigate, Link } from 'react-router-dom';
+import { login } from '../../../redux/slices/authSlice';
+import { fetchUsers } from '../../../redux/slices/usersSlice';
 
 const CardLogin = () => {
   const [user, setUser] = useState({
     credentials: { email: '', password: '' },
     isLoggedIn: false,
   });
-  console.log(user);
+  const { credentials, isLoggedIn } = user;
+
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-  // const isLoggedIn
+  const dispatch = useAppDispatch();
+  const emails = useAppSelector((state) => state.users.users);
+
+  useEffect(() => {
+    dispatch(fetchUsers());
+  }, [dispatch]);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUser((user) => ({
@@ -28,12 +34,19 @@ const CardLogin = () => {
         ...user.credentials,
         [event.target.name]: event.target.value,
       },
-      isLoggedIn: true,
+      isLoggedIn: false,
     }));
   };
 
   const handleLogin = () => {
-    dispatch(ActionCreators.loginUser(user));
+    setUser((user) => ({
+      ...user,
+      credentials: {
+        ...user.credentials,
+      },
+      isLoggedIn: true,
+    }));
+    dispatch(login(user));
     navigate('/workspace/info');
   };
 

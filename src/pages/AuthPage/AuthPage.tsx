@@ -16,7 +16,7 @@ function AuthPage() {
       <AuthMessage
         message={
           route.pathname === '/auth/sign-up'
-            ? 'sign up a new account'
+            ? 'signing up a new account'
             : 'the optimized workflow out of the box'
         }
       />

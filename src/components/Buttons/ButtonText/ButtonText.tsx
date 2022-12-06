@@ -3,8 +3,13 @@ import styles from './ButtonText.module.css';
 
 interface ButtonTextProps {
   text: string;
+  onClick?: (event: React.MouseEvent) => void;
 }
 
-export default function ButtonText({ text }: ButtonTextProps) {
-  return <p className={styles.buttonText}>{text}</p>;
+export default function ButtonText({ text, onClick }: ButtonTextProps) {
+  return (
+    <p className={styles.buttonText} onClick={onClick}>
+      {text}
+    </p>
+  );
 }

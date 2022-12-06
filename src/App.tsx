@@ -14,8 +14,6 @@ import { protectedRoutes, publicRoutes } from './routes/routes';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 
-// const router = createBrowserRouter(routes);
-
 function App() {
   return (
     <Provider store={store}>
@@ -25,11 +23,19 @@ function App() {
             <Routes>
               <Route element={<PrivateRoutes />}>
                 {protectedRoutes.map((route) => (
-                  <Route element={route.element} path={route.path} />
+                  <Route
+                    key={route.id}
+                    element={route.element}
+                    path={route.path}
+                  />
                 ))}
               </Route>
               {publicRoutes.map((route) => (
-                <Route element={route.element} path={route.path} />
+                <Route
+                  key={route.id}
+                  element={route.element}
+                  path={route.path}
+                />
               ))}
             </Routes>
           </Router>

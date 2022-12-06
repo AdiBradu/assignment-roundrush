@@ -1,12 +1,11 @@
-import React from 'react';
 import { Button } from '@mui/material';
 
-interface BUTTON_NEXT {
-  onClick: (event: React.MouseEvent) => void;
+interface BUTTON_DONE {
+  onClick?: (event: React.MouseEvent) => void;
   isValid?: boolean;
 }
 
-function ButtonNext({ onClick, isValid }: BUTTON_NEXT) {
+export const ButtonDone = ({ onClick, isValid }: BUTTON_DONE) => {
   return (
     <Button
       fullWidth
@@ -15,9 +14,7 @@ function ButtonNext({ onClick, isValid }: BUTTON_NEXT) {
       onClick={onClick}
       disabled={isValid ? false : true}
     >
-      Next
+      Done
     </Button>
   );
-}
-
-export default ButtonNext;
+};

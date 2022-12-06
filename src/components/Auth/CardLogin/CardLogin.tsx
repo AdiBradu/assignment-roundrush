@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import CardAuth from '../CardAuth/CardAuth';
 import CardHeader from '../CardHeader/CardHeader';
 import CardBody from '../CardBody/CardBody';
@@ -7,47 +7,28 @@ import CardTitle from '../CardTitle/CardTitle';
 import ButtonLogin from '../../Buttons/ButtonLogin/ButtonLogin';
 import InputNoLabel from '../../Inputs/InputNoLabel/InputNoLabel';
 import ButtonText from '../../Buttons/ButtonText/ButtonText';
-import { useAppDispatch, useAppSelector } from '../../../hooks/hooks';
-import { useNavigate, Link } from 'react-router-dom';
-import { login } from '../../../redux/slices/authSlice';
-import { fetchUsers } from '../../../redux/slices/usersSlice';
+import { useAppDispatch } from '../../../redux/hooks/hooks';
+import { Link } from 'react-router-dom';
+import { login, reset } from '../../../redux/features/auth/authSlice';
 
 const CardLogin = () => {
-  const [user, setUser] = useState({
-    credentials: { email: '', password: '' },
-    isLoggedIn: false,
-  });
-  const { credentials, isLoggedIn } = user;
-
-  const navigate = useNavigate();
+  const [credentials, setCredentials] = useState({ email: '', password: '' });
+  const { email, password } = credentials;
   const dispatch = useAppDispatch();
-  const emails = useAppSelector((state) => state.users.users);
-
-  useEffect(() => {
-    dispatch(fetchUsers());
-  }, [dispatch]);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setUser((user) => ({
-      ...user,
-      credentials: {
-        ...user.credentials,
-        [event.target.name]: event.target.value,
-      },
-      isLoggedIn: false,
+    setCredentials((prevState) => ({
+      ...prevState,
+      [event.target.name]: event.target.value,
     }));
   };
 
   const handleLogin = () => {
-    setUser((user) => ({
-      ...user,
-      credentials: {
-        ...user.credentials,
-      },
-      isLoggedIn: true,
-    }));
-    dispatch(login(user));
-    navigate('/workspace/info');
+    dispatch(login(credentials));
+  };
+
+  const handleReset = () => {
+    dispatch(reset());
   };
 
   return (
@@ -57,31 +38,35 @@ const CardLogin = () => {
       </CardHeader>
 
       <CardBody>
-        <InputNoLabel
-          name="email"
-          type="email"
-          placeholder="your email"
-          value={user.credentials.email}
-          autoComplete="off"
-          onChange={handleChange}
-        />
-        <InputNoLabel
-          name="password"
-          type="password"
-          placeholder="password"
-          value={user.credentials.password}
-          autoComplete="off"
-          onChange={handleChange}
-        />
-        <ButtonLogin onClick={handleLogin} />
+        <form autoComplete="off">
+          <InputNoLabel
+            name="email"
+            type="email"
+            placeholder="your email"
+            value={email}
+            autoComplete="off"
+            onChange={handleChange}
+          />
+          <InputNoLabel
+            name="password"
+            type="password"
+            placeholder="password"
+            value={password}
+            autoComplete="off"
+            onChange={handleChange}
+          />
+          <Link to="/workspace/info">
+            <ButtonLogin onClick={handleLogin} />
+          </Link>
+        </form>
       </CardBody>
 
       <CardFooter>
         <Link to="/auth/password-recovery">
-          <ButtonText text="I forgot my password" />
+          <ButtonText text="I forgot my password" onClick={handleReset} />
         </Link>
         <Link to="/auth/sign-up">
-          <ButtonText text="I don't have an account" />
+          <ButtonText text="I don't have an account" onClick={handleReset} />
         </Link>
       </CardFooter>
     </CardAuth>

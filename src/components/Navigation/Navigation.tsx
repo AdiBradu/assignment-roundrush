@@ -1,17 +1,22 @@
 import { useState } from 'react';
+//Material UI
+import {
+  Drawer,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  ListItemText,
+  ListItemIcon,
+  ListItemButton,
+  ListItem,
+  List,
+  Box,
+  Divider,
+  Avatar,
+  Stack,
+} from '@mui/material';
 import { styled, useTheme, Theme, CSSObject } from '@mui/material/styles';
-
-import MuiDrawer from '@mui/material/Drawer';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import Divider from '@mui/material/Divider';
-import Avatar from '@mui/material/Avatar';
-import Stack from '@mui/material/Stack';
-import Box from '@mui/material/Box';
-
+//Media
 import { ReactComponent as Roundrush } from '../../assets/icons/RoundrushIcon.svg';
 import { ReactComponent as Menu } from '../../assets/icons/menu.svg';
 import { ReactComponent as Brotli } from '../../assets/icons/logos-brotli.svg';
@@ -21,6 +26,13 @@ import { ReactComponent as Settings } from '../../assets/icons/settings.svg';
 import { ReactComponent as Member } from '../../assets/icons/member.svg';
 import { ReactComponent as Exit } from '../../assets/icons/exit.svg';
 import { ReactComponent as Help } from '../../assets/icons/help.svg';
+import { ReactComponent as ArrowDown } from '../../assets//icons/arrow-down.svg';
+import Person from '../../assets/images/ProfilePictureAdrianBradu.png';
+//Redux
+import { useAppDispatch } from '../../redux/hooks/hooks';
+import { reset } from '../../redux/features/auth/authSlice';
+//Hardcoded data
+import { teams, colors } from '../../data/teams';
 
 const drawerWidth = 220;
 
@@ -45,7 +57,7 @@ const closedMixin = (theme: Theme): CSSObject => ({
   },
 });
 
-const Drawer = styled(MuiDrawer, {
+const MyDrawer = styled(Drawer, {
   shouldForwardProp: (prop) => prop !== 'open',
 })(({ theme, open }) => ({
   width: drawerWidth,
@@ -64,11 +76,14 @@ const Drawer = styled(MuiDrawer, {
 
 export const Navigation = () => {
   const theme = useTheme();
-  const [isDrawerOpen, setIsDrawerOpen] = useState(true);
+  const dispatch = useAppDispatch();
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const handleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
   };
+
+  const handleLogout = () => [dispatch(reset())];
 
   const menuItemsTop = [
     {
@@ -91,7 +106,7 @@ export const Navigation = () => {
 
   return (
     <>
-      <Drawer
+      <MyDrawer
         variant="permanent"
         open={isDrawerOpen}
         sx={{ background: '#31394E' }}
@@ -164,22 +179,66 @@ export const Navigation = () => {
         >
           <List>
             <ListItem sx={{ padding: '0px' }}>
-              <ListItemButton
-                sx={{
-                  justifyContent: isDrawerOpen ? 'initial' : 'center',
-                  padding: '14px 24px',
-                  gap: isDrawerOpen ? '12px' : '0px',
-                  '&:hover': { backgroundColor: 'rgba(255,255,255,0.2)' },
-                }}
-              >
-                <ListItemIcon sx={{ minWidth: 'auto' }}>
-                  <Member />
-                </ListItemIcon>
-                <ListItemText
-                  primary={'Teams'}
-                  sx={{ opacity: isDrawerOpen ? 1 : 0 }}
-                />
-              </ListItemButton>
+              <Accordion>
+                <AccordionSummary
+                  expandIcon={<ArrowDown />}
+                  aria-controls="teams"
+                >
+                  <ListItemButton
+                    sx={{
+                      justifyContent: isDrawerOpen ? 'initial' : 'center',
+                      padding: '14px 24px',
+                      gap: isDrawerOpen ? '12px' : '0px',
+                      '&:hover': { backgroundColor: 'rgba(255,255,255,0.2)' },
+                    }}
+                  >
+                    <ListItemIcon sx={{ minWidth: 'auto' }}>
+                      <Member />
+                    </ListItemIcon>
+                    <ListItemText
+                      primary={'Teams'}
+                      sx={{ opacity: isDrawerOpen ? 1 : 0 }}
+                    />
+                  </ListItemButton>
+                </AccordionSummary>
+                <AccordionDetails
+                  sx={{ display: isDrawerOpen ? 'flex' : 'none' }}
+                >
+                  <List>
+                    {teams.map((team, index) => (
+                      <ListItem sx={{ padding: '8px 0px' }} key={team.name}>
+                        <Stack>
+                          <ListItemText primary={team.name} />
+                          <List>
+                            {team.subteams.map((subteam, index) => (
+                              <ListItem
+                                sx={{ padding: '0px' }}
+                                key={subteam + index}
+                              >
+                                <Stack
+                                  flexDirection={'row'}
+                                  gap="8px"
+                                  alignItems={'center'}
+                                >
+                                  <Box
+                                    sx={{
+                                      width: '12px',
+                                      height: '12px',
+                                      backgroundColor: colors[index],
+                                      borderRadius: '3px',
+                                    }}
+                                  ></Box>
+                                  <ListItemText primary={subteam} />
+                                </Stack>
+                              </ListItem>
+                            ))}
+                          </List>
+                        </Stack>
+                      </ListItem>
+                    ))}
+                  </List>
+                </AccordionDetails>
+              </Accordion>
             </ListItem>
           </List>
 
@@ -209,8 +268,7 @@ export const Navigation = () => {
                   }}
                 >
                   <ListItemIcon sx={{ minWidth: 'auto' }}>
-                    {' '}
-                    <Exit />
+                    <Exit onClick={handleLogout} />
                   </ListItemIcon>
                 </ListItemButton>
               </ListItem>
@@ -225,7 +283,7 @@ export const Navigation = () => {
                   <ListItemIcon sx={{ minWidth: 'auto' }}>
                     <Avatar
                       sx={{ bgcolor: 'red', width: '26px', height: '26px' }}
-                      src={'/public/images/ProfilePictureAdrianBradu.png'}
+                      src={Person}
                     />
                   </ListItemIcon>
                 </ListItemButton>
@@ -233,7 +291,7 @@ export const Navigation = () => {
             </Stack>
           </List>
         </Box>
-      </Drawer>
+      </MyDrawer>
     </>
   );
 };

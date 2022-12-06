@@ -4,12 +4,22 @@ declare module '@mui/material/Button' {
   interface ButtonPropsVariantOverrides {
     login: true;
     register: true;
+    save: true;
   }
 }
 
 declare module '@mui/material/Typography' {
   interface TypographyPropsVariantOverrides {
     pageheading: true;
+    tableCellName: true;
+    tableCellEmail: true;
+    tableCellStatus: true;
+  }
+}
+
+declare module '@mui/material/Chip' {
+  interface ChipPropsVariantOverrides {
+    owner: true;
   }
 }
 
@@ -24,6 +34,38 @@ const theme = createTheme({
             fontSize: '24px',
             fontWeight: 400,
             lineHeight: '28.44px',
+          },
+        },
+        {
+          props: { variant: 'tableCellName' },
+          style: {
+            fontFamily: 'Rubik',
+            fontSize: '16px',
+            fontWeight: 400,
+            lineHeight: '19px',
+            color: '#31394E',
+            marginLeft: '26px',
+          },
+        },
+        {
+          props: { variant: 'tableCellEmail' },
+          style: {
+            fontFamily: 'Rubik',
+            fontSize: '12px',
+            fontWeight: 400,
+            lineHeight: '16px',
+            color: '#838895',
+          },
+        },
+        {
+          props: { variant: 'tableCellStatus' },
+          style: {
+            fontFamily: 'Rubik',
+            fontSize: '12px',
+            fontWeight: 400,
+            lineHeight: '16px',
+            color: '#838895',
+            textAlign: 'center',
           },
         },
       ],
@@ -65,6 +107,25 @@ const theme = createTheme({
             textAlign: 'center',
             ':hover': {
               background: '#29C293',
+            },
+          },
+        },
+        {
+          props: { variant: 'save' },
+          style: {
+            background: '#4c84ff',
+            borderRadius: '6px',
+            color: '#ffffff',
+            textTransform: 'capitalize',
+            padding: '6px 24px',
+            fontFamily: 'Rubik',
+            fontSize: '14px',
+            fontWeight: 500,
+            lineHeight: '20px',
+            letterSpacing: '0px',
+            textAlign: 'center',
+            ':hover': {
+              background: '#4c84ff',
             },
           },
         },
@@ -184,6 +245,66 @@ const theme = createTheme({
           fontWeight: 400,
           fontSize: '14px',
           lineHeight: '20px',
+        },
+      },
+    },
+    MuiChip: {
+      variants: [
+        {
+          props: { variant: 'owner' },
+          style: {
+            backgroundColor: '#BFEDDF',
+            color: '#29C293',
+            fonFamily: 'Rubik',
+            fonWeight: 400,
+            fontSize: '12px',
+            lineHeight: '14px',
+            textAlign: 'center',
+            borderRadius: '6px',
+            marginLeft: '66px',
+            padding: '5px 16px',
+          },
+        },
+      ],
+    },
+    MuiTableContainer: {
+      styleOverrides: {
+        root: {
+          boxShadow: 'none',
+        },
+      },
+    },
+    MuiTableHead: {
+      styleOverrides: {
+        root: {
+          border: 0,
+        },
+      },
+    },
+    MuiAccordion: {
+      styleOverrides: {
+        root: {
+          border: 0,
+          borderRadius: 0,
+          background: 'transparent',
+          color: 'inherit',
+          boxShadow: 'none',
+        },
+      },
+    },
+    MuiAccordionSummary: {
+      styleOverrides: {
+        root: {
+          padding: 0,
+          '&.Mui-expanded': {
+            minHeight: 'auto',
+          },
+        },
+        content: {
+          margin: 0,
+          '&.Mui-expanded': {
+            margin: 0,
+          },
         },
       },
     },

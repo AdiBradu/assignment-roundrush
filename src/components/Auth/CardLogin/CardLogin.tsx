@@ -10,6 +10,7 @@ import ButtonText from '../../Buttons/ButtonText/ButtonText';
 import { useAppDispatch } from '../../../redux/hooks/hooks';
 import { Link } from 'react-router-dom';
 import { login, reset } from '../../../redux/features/auth/authSlice';
+import { fetchUsers } from '../../../redux/features/users/usersSlice';
 
 const CardLogin = () => {
   const [credentials, setCredentials] = useState({ email: '', password: '' });
@@ -25,6 +26,7 @@ const CardLogin = () => {
 
   const handleLogin = () => {
     dispatch(login(credentials));
+    dispatch(fetchUsers());
   };
 
   const handleReset = () => {

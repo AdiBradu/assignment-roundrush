@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
-import axios from 'axios';
+import usersService from './usersService';
 
 interface InitialState {
   loading: boolean;
@@ -8,8 +8,16 @@ interface InitialState {
 }
 
 interface User {
-  id: number;
+  name: string;
   email: string;
+  password: string;
+  company: {
+    nameCompany: string;
+    nicknameSpace: string;
+    industry: string;
+    employees: string;
+  };
+  website?: string;
 }
 
 const initialState: InitialState = {
@@ -18,10 +26,12 @@ const initialState: InitialState = {
   error: '',
 };
 
-export const fetchUsers = createAsyncThunk('users/fetchUsers', () => {
-  return axios
-    .get('https://jsonplaceholder.typicode.com/users')
-    .then((res) => res.data.map((user: User) => user.email));
+export const fetchUsers = createAsyncThunk('users/fetchUsers', async () => {
+  try {
+    return await usersService.fetchUsers();
+  } catch (error: any) {
+    return error;
+  }
 });
 
 const usersSlice = createSlice({
@@ -29,22 +39,20 @@ const usersSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(fetchUsers.pending, (state) => {
-      state.loading = true;
-    });
-    builder.addCase(
-      fetchUsers.fulfilled,
-      (state, action: PayloadAction<User[]>) => {
+    builder
+      .addCase(fetchUsers.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchUsers.fulfilled, (state, action: PayloadAction<User[]>) => {
         state.loading = false;
         state.users = action.payload;
         state.error = '';
-      },
-    );
-    builder.addCase(fetchUsers.rejected, (state, action) => {
-      state.loading = false;
-      state.users = [];
-      state.error = action.error.message || 'Something went wrong';
-    });
+      })
+      .addCase(fetchUsers.rejected, (state, action) => {
+        state.loading = false;
+        state.users = [];
+        state.error = action.error.message || 'Something went wrong';
+      });
   },
 });
 

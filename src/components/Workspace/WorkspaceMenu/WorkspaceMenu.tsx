@@ -1,16 +1,20 @@
 import { useLocation, Link } from 'react-router-dom';
-import Box from '@mui/material/Box';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
+//Material UI
+import {
+  ListItemText,
+  ListItemIcon,
+  ListItemButton,
+  ListItem,
+  List,
+  Box,
+} from '@mui/material';
+//Media
 import { ReactComponent as Settings } from '../../../assets/icons/settingsBlue.svg';
 
 export const WorkspaceMenu = () => {
   const location = useLocation();
   return (
-    <Box sx={{ padding: '0px 50px', height: '100%' }}>
+    <Box sx={{ padding: '0px 50px', height: '100%', width: '15%' }}>
       <List>
         <ListItem sx={{ padding: '0px', gap: '10px' }}>
           <ListItemIcon sx={{ minWidth: 'auto' }}>

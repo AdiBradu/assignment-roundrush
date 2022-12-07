@@ -1,6 +1,4 @@
-import React from 'react';
 import styles from './CardHeader.module.css';
-
 interface CardHeaderProps {
   children?: JSX.Element | JSX.Element[];
 }

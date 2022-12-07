@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './CardSignup.module.css';
 import { ReactComponent as Mail } from '../../../assets/icons/Mail.svg';
 import CardAuth from '../CardAuth/CardAuth';
@@ -7,6 +7,7 @@ import CardBody from '../CardBody/CardBody';
 import CardFooter from '../CardFooter/CardFooter';
 import CardTitle from '../CardTitle/CardTitle';
 import CardSubtitle from '../CardSubtitle/CardSubtitle';
+//Material UI
 import {
   TextField,
   Checkbox,
@@ -18,16 +19,19 @@ import ButtonNext from '../../Buttons/ButtonNext/ButtonNext';
 import ButtonGoToLogin from '../../Buttons/ButtonGoToLogin/ButtonGoToLogin';
 import ButtonRegister from '../../Buttons/ButtonRegister/ButtonRegister';
 import ButtonText from '../../Buttons/ButtonText/ButtonText';
+//Redux
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks/hooks';
 import {
   checkEmailValidity,
   register,
   reset,
 } from '../../../redux/features/auth/authSlice';
+//Routing
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+//Form Validator
 import isEmail from 'validator/lib/isEmail';
 import isEmpty from 'validator/lib/isEmpty';
-import { Link } from 'react-router-dom';
 
 function CardSignup() {
   const dispatch = useAppDispatch();

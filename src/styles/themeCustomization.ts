@@ -1,5 +1,37 @@
 import { createTheme } from '@mui/material';
+import '@mui/material/styles/createPalette';
 
+declare module '@mui/material/styles' {
+  interface Theme {
+    custom: {
+      warning: string;
+      success: string;
+      authStatusBackground: string;
+      magenta: string;
+      green: string;
+      lightBlue: string;
+      blue: string;
+      purple: string;
+      yellow: string;
+      orange: string;
+    };
+  }
+  // allow configuration using `createTheme`
+  interface ThemeOptions {
+    custom?: {
+      warning?: string;
+      success?: string;
+      authStatusBackground?: string;
+      magenta?: string;
+      green?: string;
+      lightBlue?: string;
+      blue?: string;
+      purple?: string;
+      yellow?: string;
+      orange?: string;
+    };
+  }
+}
 declare module '@mui/material/Button' {
   interface ButtonPropsVariantOverrides {
     login: true;
@@ -14,6 +46,11 @@ declare module '@mui/material/Typography' {
     tableCellName: true;
     tableCellEmail: true;
     tableCellStatus: true;
+    authMessage: true;
+    authStatus: true;
+    sectionTitle: true;
+    favoriteProject: true;
+    initials: true;
   }
 }
 
@@ -24,9 +61,46 @@ declare module '@mui/material/Chip' {
 }
 
 const theme = createTheme({
+  custom: {
+    warning: '#fd5461',
+    success: '#29c293',
+    authStatusBackground: '#f4f6fc',
+    magenta: '#DB54FD',
+    green: '#61D26F',
+    lightBlue: '#1FAAE9',
+    blue: '#4086E0',
+    purple: '#7A6FEF',
+    yellow: '#EEC301',
+    orange: '#FD612C',
+  },
   components: {
     MuiTypography: {
       variants: [
+        {
+          props: { variant: 'authMessage' },
+          style: {
+            fontFamily: 'Inter',
+            fontStyle: 'normal',
+            fontWeight: 500,
+            fontSize: '12px',
+            lineHeight: '24px',
+            letterSpacing: '6px',
+            textTransform: 'uppercase',
+            maxWidth: '42ch',
+            color: '#4c84ff',
+            marginTop: '26px',
+          },
+        },
+        {
+          props: { variant: 'authStatus' },
+          style: {
+            fontFamily: 'Rubik',
+            fontStyle: 'normal',
+            fontWeight: 400,
+            fontSize: '12px',
+            lineHeight: '24px',
+          },
+        },
         {
           props: { variant: 'pageheading' },
           style: {
@@ -66,6 +140,44 @@ const theme = createTheme({
             lineHeight: '16px',
             color: '#838895',
             textAlign: 'center',
+          },
+        },
+        {
+          props: { variant: 'sectionTitle' },
+          style: {
+            fontFamily: 'Rubik',
+            fontSize: '20px',
+            fontWeight: 400,
+            lineHeight: '24px',
+            color: '#31394E',
+            textAlign: 'left',
+            textTransform: 'capitalize',
+          },
+        },
+        {
+          props: { variant: 'favoriteProject' },
+          style: {
+            fontFamily: 'Rubik',
+            fontSize: '16px',
+            fontWeight: 400,
+            lineHeight: '18.96px',
+            color: '#838895',
+            textAlign: 'center',
+            textTransform: 'capitalize',
+            whiteSpace: 'normal',
+            textOverflow: 'elipsis',
+          },
+        },
+        {
+          props: { variant: 'initials' },
+          style: {
+            fontFamily: 'Rubik',
+            fontSize: '26px',
+            fontWeight: 500,
+            lineHeight: '30.81px',
+            color: '#fff',
+            textAlign: 'center',
+            textTransform: 'uppercase',
           },
         },
       ],
@@ -295,6 +407,7 @@ const theme = createTheme({
     MuiAccordionSummary: {
       styleOverrides: {
         root: {
+          minHeight: 'auto',
           padding: 0,
           '&.Mui-expanded': {
             minHeight: 'auto',
@@ -302,9 +415,17 @@ const theme = createTheme({
         },
         content: {
           margin: 0,
+          gap: '12px',
           '&.Mui-expanded': {
             margin: 0,
           },
+        },
+      },
+    },
+    MuiAccordionDetails: {
+      styleOverrides: {
+        root: {
+          padding: '14px 24px',
         },
       },
     },

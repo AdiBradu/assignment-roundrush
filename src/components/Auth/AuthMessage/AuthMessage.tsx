@@ -1,12 +1,14 @@
-import React from 'react';
-import styles from './AuthMessage.module.css';
-
+import { Typography } from '@mui/material';
 interface AuthMessageProps {
   message: string;
 }
 
 function AuthMessage({ message }: AuthMessageProps) {
-  return <p className={styles.authMessage}>{message}</p>;
+  return (
+    <Typography variant="authMessage" textAlign={'center'}>
+      {message}
+    </Typography>
+  );
 }
 
 export default AuthMessage;

@@ -14,7 +14,15 @@ import { ReactComponent as Settings } from '../../../assets/icons/settingsBlue.s
 export const WorkspaceMenu = () => {
   const location = useLocation();
   return (
-    <Box sx={{ padding: '0px 50px', height: '100%', width: '15%' }}>
+    <Box
+      sx={{
+        padding: '0px 50px 0px 0px',
+        height: '100%',
+        width: '15%',
+        position: 'sticky',
+        top: 0,
+      }}
+    >
       <List>
         <ListItem sx={{ padding: '0px', gap: '10px' }}>
           <ListItemIcon sx={{ minWidth: 'auto' }}>
@@ -35,7 +43,7 @@ export const WorkspaceMenu = () => {
         </ListItem>
 
         <ListItem sx={{ padding: '0px', marginTop: '24px' }}>
-          <Link to="/workspace/info">
+          <Link to="/workspace/info" state={{ data: 'Space settings' }}>
             <ListItemButton
               sx={{
                 justifyContent: 'center',
@@ -58,7 +66,7 @@ export const WorkspaceMenu = () => {
         </ListItem>
 
         <ListItem sx={{ padding: '0px', marginTop: '24px' }}>
-          <Link to="/workspace/members">
+          <Link to="/workspace/members" state={{ data: 'Space settings' }}>
             <ListItemButton
               sx={{
                 justifyContent: 'center',

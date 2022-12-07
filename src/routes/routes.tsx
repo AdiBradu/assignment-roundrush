@@ -3,55 +3,63 @@ import DashboardPage from '../pages/DashboardPage/DashboardPage';
 import NoPage from '../pages/404Page/404Page';
 import AuthPage from '../pages/AuthPage/AuthPage';
 
-const protectedRoutes = [
+interface Routes {
+  path: string;
+  redirect?: string | undefined;
+  element: JSX.Element;
+  children: {
+    path: string;
+    element: JSX.Element;
+  }[];
+}
+
+const protectedRoutes: Routes[] = [
   {
-    id: 1,
     path: '/',
-    redirect: 'auth/login',
+    redirect: '/auth/login',
     element: <AuthPage />,
+    children: [],
   },
   {
-    id: 2,
-    path: '/workspace/info',
+    path: '/workspace',
     element: <WorkspacePage />,
+    children: [
+      {
+        path: '/workspace/info',
+        element: <WorkspacePage />,
+      },
+      {
+        path: '/workspace/members',
+        element: <WorkspacePage />,
+      },
+    ],
   },
   {
-    id: 3,
-    path: '/workspace/members',
-    element: <WorkspacePage />,
-  },
-  {
-    id: 4,
     path: '/dashboard',
     element: <DashboardPage />,
-  },
-  {
-    id: 5,
-    path: '/dashboard/:project',
-    element: <DashboardPage />,
+    children: [
+      {
+        path: '/dashboard/:project',
+        element: <DashboardPage />,
+      },
+    ],
   },
 ];
 
-const publicRoutes = [
+const publicRoutes: Routes[] = [
   {
-    id: 51,
-    path: 'auth/login',
+    path: '/auth',
     element: <AuthPage />,
+    children: [
+      { path: '/auth/login', element: <AuthPage /> },
+      { path: '/auth/sign-up', element: <AuthPage /> },
+      { path: '/auth/recovery-password', element: <AuthPage /> },
+    ],
   },
   {
-    id: 52,
-    path: 'auth/sign-up',
-    element: <AuthPage />,
-  },
-  {
-    id: 53,
-    path: 'auth/password-recovery',
-    element: <AuthPage />,
-  },
-  {
-    id: 54,
     path: '*',
     element: <NoPage />,
+    children: [],
   },
 ];
 

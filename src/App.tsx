@@ -24,18 +24,34 @@ function App() {
               <Route element={<PrivateRoutes />}>
                 {protectedRoutes.map((route) => (
                   <Route
-                    key={route.id}
+                    key={route.path}
                     element={route.element}
                     path={route.path}
-                  />
+                  >
+                    {route.children.map((route) => (
+                      <Route
+                        key={route.path}
+                        element={route.element}
+                        path={route.path}
+                      />
+                    ))}
+                  </Route>
                 ))}
               </Route>
               {publicRoutes.map((route) => (
                 <Route
-                  key={route.id}
+                  key={route.path}
                   element={route.element}
                   path={route.path}
-                />
+                >
+                  {route.children.map((route) => (
+                    <Route
+                      key={route.path}
+                      element={route.element}
+                      path={route.path}
+                    />
+                  ))}
+                </Route>
               ))}
             </Routes>
           </Router>

@@ -1,6 +1,4 @@
-import React from 'react';
 import styles from './CardFooter.module.css';
-
 interface CardFooterProps {
   children?: JSX.Element | JSX.Element[];
 }

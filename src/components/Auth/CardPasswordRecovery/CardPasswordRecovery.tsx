@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import CardAuth from '../CardAuth/CardAuth';
 import CardTitle from '../CardTitle/CardTitle';
 import CardSubtitle from '../CardSubtitle/CardSubtitle';
@@ -11,11 +11,13 @@ import ButtonPasswordRecovery from '../../Buttons/ButtonPasswordRecovery/ButtonP
 import ButtonText from '../../Buttons/ButtonText/ButtonText';
 import { ButtonDone } from '../../Buttons/ButtonDone/ButtonDone';
 import { Link } from 'react-router-dom';
+//Redux
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks/hooks';
 import {
   checkEmailValidity,
   reset,
 } from '../../../redux/features/auth/authSlice';
+//Validator
 import isEmail from 'validator/lib/isEmail';
 import isEmpty from 'validator/lib/isEmpty';
 
@@ -27,6 +29,7 @@ function CardPasswordRecovery() {
     email: '',
     password: '',
   });
+
   const [recoveryLink, setRecoveryLink] = useState(false);
   const { email, password } = formData;
 

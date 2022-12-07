@@ -1,7 +1,49 @@
-import React from 'react';
+//Styles
+import { customStyles } from '../../styles/styles';
+//Components
+import { Navigation } from '../../components/Navigation/Navigation';
+import { PageHeader } from '../../components/PageHeader/PageHeader';
+import { DashboarFavoriteProjects } from '../../components/Dashboard/DashboardFavoriteProjects/DashboarFavoriteProjects';
+import { DashboardProjectSummary } from '../../components/Dashboard/DashboardProjectSummary/DashboardProjectSummary';
+//Material UI
+import { Stack, Box } from '@mui/system';
+import { Divider } from '@mui/material';
 
 function DashboardPage() {
-  return <div>DashboardPage</div>;
+  return (
+    <Box sx={{ display: 'flex', width: '100%', height: '100%' }}>
+      <Navigation />
+      <Box
+        sx={{
+          background: '#fff',
+          width: '100%',
+          height: '100%',
+          position: 'relative',
+          paddingLeft: '50px',
+        }}
+      >
+        <Stack flexDirection={'column'} sx={{ height: '100%' }}>
+          <PageHeader />
+
+          <Box sx={{ height: '100%', position: 'relative' }}>
+            <Stack
+              direction={'row'}
+              divider={
+                <Divider
+                  orientation="vertical"
+                  sx={customStyles.stylesVertticalDivider}
+                />
+              }
+              sx={{ height: '100%', position: 'relative' }}
+            >
+              <DashboarFavoriteProjects />
+              <DashboardProjectSummary />
+            </Stack>
+          </Box>
+        </Stack>
+      </Box>
+    </Box>
+  );
 }
 
 export default DashboardPage;

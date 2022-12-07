@@ -1,11 +1,19 @@
+import { useState } from 'react';
+//Material UI
+import {
+  Avatar,
+  Box,
+  TextField,
+  Typography,
+  MenuItem,
+  InputLabel,
+  Stack,
+} from '@mui/material';
+//Styles
 import styles from './WorkspaceInfo.module.css';
 import { customStyles } from '../../../styles/styles';
-import Box from '@mui/material/Box';
-import { Stack } from '@mui/system';
-import { TextField, Typography, MenuItem } from '@mui/material';
-import Avatar from '@mui/material/Avatar';
+//Media
 import Person from '../../../assets/images/ProfilePictureAdrianBradu.png';
-import { useState } from 'react';
 
 export const WorkspaceInfo = () => {
   const [info, setInfo] = useState({
@@ -25,6 +33,7 @@ export const WorkspaceInfo = () => {
       [event.target.name]: event.target.value,
     }));
   };
+
   return (
     <Box sx={{ padding: '0px 50px' }}>
       <Stack>
@@ -36,7 +45,23 @@ export const WorkspaceInfo = () => {
           Info
         </Typography>
         <form>
-          <Avatar sx={customStyles.avatarInfo} src={Person} />
+          <Stack>
+            <InputLabel
+              sx={{
+                color: '#ADB0B8',
+                position: 'relative',
+                fontFamily: 'Rubik',
+                fontWeight: 400,
+                fontSize: '12px',
+                lineHeight: '14px',
+                marginLeft: '8px',
+                marginBottom: '12px',
+              }}
+            >
+              Avatar
+            </InputLabel>
+            <Avatar sx={customStyles.avatarInfo} src={Person} />
+          </Stack>
           <TextField
             label="Full Name"
             id="fullname"

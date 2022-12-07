@@ -1,14 +1,17 @@
+//Styles
 import styles from './WorkspacePage.module.css';
 import { customStyles } from '../../styles/styles';
+//Components
 import { Navigation } from '../../components/Navigation/Navigation';
-import Box from '@mui/material/Box';
 import { WorkspaceInfo } from '../../components/Workspace/WorkspaceInfo/WorkspaceInfo';
 import { WorkspaceMenu } from '../../components/Workspace/WorkspaceMenu/WorkspaceMenu';
 import { WrokspaceMembers } from '../../components/Workspace/WorkspaceMembers/WrokspaceMembers';
 import { PageHeader } from '../../components/PageHeader/PageHeader';
 import { PageFooter } from '../../components/PageFooter/PageFooter';
-import { Stack } from '@mui/system';
+//Material UI
+import { Stack, Box } from '@mui/system';
 import { Divider } from '@mui/material';
+//Router
 import { useLocation } from 'react-router-dom';
 
 function WorkspacePage() {
@@ -18,15 +21,19 @@ function WorkspacePage() {
   return (
     <div className={styles.page}>
       <Navigation />
-      <Box sx={customStyles.stylesPageBackground}>
+      <Box
+        sx={{
+          background: '#fff',
+          width: '100%',
+          height: '100%',
+          position: 'relative',
+          paddingLeft: '50px',
+        }}
+      >
         <Stack flexDirection={'column'} sx={{ height: '100%' }}>
           <PageHeader />
-          <Divider
-            orientation="horizontal"
-            flexItem
-            sx={customStyles.stylesHorizontalDivider}
-          />
-          <Box sx={{ height: '100%', marginTop: '53px' }}>
+
+          <Box sx={{ height: '100%', position: 'relative' }}>
             <Stack
               direction={'row'}
               divider={
@@ -35,7 +42,7 @@ function WorkspacePage() {
                   sx={customStyles.stylesVertticalDivider}
                 />
               }
-              sx={{ height: '100%' }}
+              sx={{ height: '100%', position: 'relative', marginTop: '53px' }}
             >
               <WorkspaceMenu />
               {pathname === '/workspace/info' ? (

@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './CardSubtitle.module.css';
 
 type CardSubTitleProps = {

@@ -28,7 +28,7 @@ function App() {
                     element={route.element}
                     path={route.path}
                   >
-                    {route.children.map((route) => (
+                    {route.children?.map((route) => (
                       <Route
                         key={route.path}
                         element={route.element}
@@ -44,7 +44,7 @@ function App() {
                   element={route.element}
                   path={route.path}
                 >
-                  {route.children.map((route) => (
+                  {route.children?.map((route) => (
                     <Route
                       key={route.path}
                       element={route.element}

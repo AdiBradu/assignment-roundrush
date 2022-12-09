@@ -2,7 +2,7 @@
 import styles from './WorkspacePage.module.css';
 import { customStyles } from '../../styles/styles';
 //Components
-import { Navigation } from '../../components/Navigation/Navigation';
+import { Navigation } from '../../components/Drawers/Navigation/Navigation';
 import { WorkspaceInfo } from '../../components/Workspace/WorkspaceInfo/WorkspaceInfo';
 import { WorkspaceMenu } from '../../components/Workspace/WorkspaceMenu/WorkspaceMenu';
 import { WrokspaceMembers } from '../../components/Workspace/WorkspaceMembers/WrokspaceMembers';

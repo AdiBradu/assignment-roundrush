@@ -1,18 +1,21 @@
 //Styles
 import { customStyles } from '../../styles/styles';
 //Components
-import { Navigation } from '../../components/Navigation/Navigation';
+import { Navigation } from '../../components/Drawers/Navigation/Navigation';
 import { PageHeader } from '../../components/PageHeader/PageHeader';
 import { DashboarFavoriteProjects } from '../../components/Dashboard/DashboardFavoriteProjects/DashboarFavoriteProjects';
-import { DashboardProjectSummary } from '../../components/Dashboard/DashboardProjectSummary/DashboardProjectSummary';
+import { DashboardProjectSummary } from '../../components/Dashboard//DashboardProjectSummary/DashboardProjectSummary';
 //Material UI
 import { Stack, Box } from '@mui/system';
 import { Divider } from '@mui/material';
+//Hardcoded data
+import rows from '../../data/projectTableRows';
 
 function DashboardPage() {
   return (
     <Box sx={{ display: 'flex', width: '100%', height: '100%' }}>
       <Navigation />
+
       <Box
         sx={{
           background: '#fff',
@@ -37,7 +40,7 @@ function DashboardPage() {
               sx={{ height: '100%', position: 'relative' }}
             >
               <DashboarFavoriteProjects />
-              <DashboardProjectSummary />
+              <DashboardProjectSummary rows={rows} />
             </Stack>
           </Box>
         </Stack>

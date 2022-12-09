@@ -37,21 +37,36 @@ export const DashboarFavoriteProjects = () => {
         sx={{ gap: '40px', position: 'relative', flexDirection: 'column' }}
       >
         <Box sx={{ width: '100%', position: 'relative' }}>
-          <Typography sx={{ position: 'absolute', top: '50%' }}>
-            Welcome back, {user}
-          </Typography>
+          <Stack
+            sx={{
+              position: 'absolute',
+              top: '50%',
+              transform: 'translateY(calc(-50% - 30px))',
+              left: '30px',
+              gap: '10px',
+            }}
+          >
+            <Typography variant="welcomeTitle">Welcome back, {user}</Typography>
+            <Typography variant="welcomeBody">
+              In Marketing you have 14 task to accomplish and 10 reviews left in
+              your current iteration.
+            </Typography>
+          </Stack>
           <Projects />
         </Box>
         <Typography variant="sectionTitle">favorite projects</Typography>
-        <Stack direction={'row'} sx={{ gap: '24px', flexWrap: 'wrap' }}>
+        <Stack direction={'row'} sx={{ flexWrap: 'wrap' }}>
           {users.map((user: User) => (
             <FavoriteProject
+              key={user.company.bs}
               color={colors[Math.floor(Math.random() * colors.length)]}
               text={user.company.bs}
               initials={user.name
                 .split(' ')
                 .map((n) => n[0])
                 .join('')}
+              background={'#E8F0FE'}
+              id={user.id}
             />
           ))}
         </Stack>

@@ -58,7 +58,7 @@ const CardLogin = () => {
             autoComplete="off"
             onChange={handleChange}
           />
-          <Link to="/workspace/info">
+          <Link to="/workspace/info" state={{ data: 'Space Settings' }}>
             <ButtonLogin onClick={handleLogin} />
           </Link>
         </form>

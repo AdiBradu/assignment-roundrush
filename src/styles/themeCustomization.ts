@@ -1,4 +1,4 @@
-import { createTheme } from '@mui/material';
+import { AlertTitleClassKey, createTheme } from '@mui/material';
 import '@mui/material/styles/createPalette';
 
 declare module '@mui/material/styles' {
@@ -51,12 +51,26 @@ declare module '@mui/material/Typography' {
     sectionTitle: true;
     favoriteProject: true;
     initials: true;
+    welcomeTitle: true;
+    welcomeBody: true;
+    projectTitle: true;
+    goToProject: true;
+    tableRowId: true;
+    tableRowDescription: true;
+    tasksNumber: true;
+    projectLabel: true;
   }
 }
 
 declare module '@mui/material/Chip' {
   interface ChipPropsVariantOverrides {
     owner: true;
+  }
+}
+
+declare module '@mui/material/Drawer' {
+  interface DrawerPropsVariantOverrides {
+    objective: true;
   }
 }
 
@@ -108,6 +122,7 @@ const theme = createTheme({
             fontSize: '24px',
             fontWeight: 400,
             lineHeight: '28.44px',
+            color: '#31394E',
           },
         },
         {
@@ -169,6 +184,27 @@ const theme = createTheme({
           },
         },
         {
+          props: { variant: 'tasksNumber' },
+          style: {
+            fontFamily: 'Rubik',
+            fontSize: '12px',
+            fontWeight: 400,
+            lineHeight: '12px',
+            color: '#0079FF',
+            textAlign: 'center',
+          },
+        },
+        {
+          props: { variant: 'goToProject' },
+          style: {
+            fontFamily: 'Rubik',
+            fontSize: '12px',
+            fontWeight: 400,
+            lineHeight: '14.22px',
+            color: '#838895',
+          },
+        },
+        {
           props: { variant: 'initials' },
           style: {
             fontFamily: 'Rubik',
@@ -178,6 +214,82 @@ const theme = createTheme({
             color: '#fff',
             textAlign: 'center',
             textTransform: 'uppercase',
+          },
+        },
+        {
+          props: { variant: 'welcomeTitle' },
+          style: {
+            fontFamily: 'Rubik',
+            fontSize: '24px',
+            fontWeight: 400,
+            lineHeight: '28.44px',
+            letterSpacing: '0.2px',
+            color: '#31394E',
+            textAlign: 'left',
+          },
+        },
+        {
+          props: { variant: 'welcomeBody' },
+          style: {
+            fontFamily: 'Rubik',
+            fontSize: '14px',
+            fontWeight: 500,
+            lineHeight: '22px',
+            letterSpacing: '0.2px',
+            color: '#31394E',
+            textAlign: 'left',
+            maxWidth: '42ch',
+          },
+        },
+        {
+          props: { variant: 'projectTitle' },
+          style: {
+            fontFamily: 'Rubik',
+            fontSize: '26px',
+            fontWeight: 500,
+            lineHeight: '31px',
+            color: '#4C84FF',
+            textAlign: 'left',
+            textTransform: 'capitalize',
+          },
+        },
+        {
+          props: { variant: 'tableRowId' },
+          style: {
+            fontFamily: 'Rubik',
+            fontSize: '14px',
+            fontWeight: 500,
+            lineHeight: '17px',
+            color: '#31394E',
+            textAlign: 'left',
+            textTransform: 'uppercase',
+            whiteSpace: 'nowrap',
+          },
+        },
+        {
+          props: { variant: 'tableRowDescription' },
+          style: {
+            fontFamily: 'Rubik',
+            fontSize: '14px',
+            fontWeight: 400,
+            lineHeight: '17px',
+            color: '#31394E',
+            textAlign: 'left',
+            textOverflow: 'ellipsis',
+            whiteSpace: 'nowrap',
+          },
+        },
+        {
+          props: { variant: 'projectLabel' },
+          style: {
+            fontFamily: 'Rubik',
+            fontSize: '12px',
+            fontWeight: 400,
+            lineHeight: '10px',
+            color: '#fff',
+            textAlign: 'center',
+            textTransform: 'capitalize',
+            whiteSpace: 'nowrap',
           },
         },
       ],

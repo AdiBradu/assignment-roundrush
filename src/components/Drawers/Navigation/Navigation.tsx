@@ -1,17 +1,17 @@
 import { useState } from 'react';
 //Components
-import { MenuToggler } from '../MenuToggler/MenuToggler';
-import { NavigationItem } from '../NavigationItem/NavigationItem';
-import { NavigationBottomItems } from '../NavigationBottomItems/NavigationBottomItems';
-import { TeamsAccordion } from '../TeamsAccordion/TeamsAccordion';
+import { MenuToggler } from '../../MenuToggler/MenuToggler';
+import { NavigationItem } from '../../NavigationItem/NavigationItem';
+import { NavigationBottomItems } from '../../NavigationBottomItems/NavigationBottomItems';
+import { TeamsAccordion } from '../../TeamsAccordion/TeamsAccordion';
 //Material UI
 import { Drawer, List, Divider, Stack } from '@mui/material';
 import { styled, Theme, CSSObject } from '@mui/material/styles';
 //Redux
-import { useAppDispatch } from '../../redux/hooks/hooks';
-import { reset } from '../../redux/features/auth/authSlice';
+import { useAppDispatch } from '../../../redux/hooks/hooks';
+import { reset } from '../../../redux/features/auth/authSlice';
 //Hardcoded data
-import { menuItemsTop } from '../../data/menuItemsTop';
+import { menuItemsTop } from '../../../data/menuItemsTop';
 
 const drawerWidth = 220;
 
@@ -64,11 +64,7 @@ export const Navigation = () => {
   const handleLogout = () => dispatch(reset());
 
   return (
-    <MyDrawer
-      variant="permanent"
-      open={isDrawerOpen}
-      sx={{ background: '#31394E' }}
-    >
+    <MyDrawer variant="permanent" open={isDrawerOpen}>
       <List>
         <MenuToggler isDrawerOpen={isDrawerOpen} handleDrawer={handleDrawer} />
 

@@ -22,4 +22,12 @@ interface User {
   };
 }
 
-export type { User };
+interface ProjectTableRow {
+  priority: JSX.Element;
+  issue: JSX.Element;
+  id: string;
+  description: string;
+  label: JSX.Element;
+}
+
+export type { User, ProjectTableRow };

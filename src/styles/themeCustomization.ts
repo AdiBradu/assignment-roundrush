@@ -46,7 +46,6 @@ declare module '@mui/material/Typography' {
     tableCellName: true;
     tableCellEmail: true;
     tableCellStatus: true;
-    authMessage: true;
     authStatus: true;
     sectionTitle: true;
     favoriteProject: true;
@@ -90,31 +89,6 @@ const theme = createTheme({
   components: {
     MuiTypography: {
       variants: [
-        {
-          props: { variant: 'authMessage' },
-          style: {
-            fontFamily: 'Inter',
-            fontStyle: 'normal',
-            fontWeight: 500,
-            fontSize: '12px',
-            lineHeight: '24px',
-            letterSpacing: '6px',
-            textTransform: 'uppercase',
-            maxWidth: '42ch',
-            color: '#4c84ff',
-            marginTop: '26px',
-          },
-        },
-        {
-          props: { variant: 'authStatus' },
-          style: {
-            fontFamily: 'Rubik',
-            fontStyle: 'normal',
-            fontWeight: 400,
-            fontSize: '12px',
-            lineHeight: '24px',
-          },
-        },
         {
           props: { variant: 'pageheading' },
           style: {

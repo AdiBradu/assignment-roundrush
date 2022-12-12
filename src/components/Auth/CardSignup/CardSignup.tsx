@@ -1,12 +1,17 @@
 import { useState, useEffect } from 'react';
-import styles from './CardSignup.module.css';
+//Media
 import { ReactComponent as Mail } from '../../../assets/icons/Mail.svg';
+//Components
 import CardAuth from '../CardAuth/CardAuth';
 import CardHeader from '../CardHeader/CardHeader';
 import CardBody from '../CardBody/CardBody';
 import CardFooter from '../CardFooter/CardFooter';
 import CardTitle from '../CardTitle/CardTitle';
 import CardSubtitle from '../CardSubtitle/CardSubtitle';
+import ButtonPrimary from '../../Buttons/ButtonPrimary/ButtonPrimary';
+import ButtonGoToLogin from '../../Buttons/ButtonGoToLogin/ButtonGoToLogin';
+import ButtonRegister from '../../Buttons/ButtonRegister/ButtonRegister';
+import ButtonText from '../../Buttons/ButtonText/ButtonText';
 //Material UI
 import {
   TextField,
@@ -14,11 +19,10 @@ import {
   FormGroup,
   FormControlLabel,
   MenuItem,
+  Typography,
+  Stack,
 } from '@mui/material';
-import ButtonNext from '../../Buttons/ButtonNext/ButtonNext';
-import ButtonGoToLogin from '../../Buttons/ButtonGoToLogin/ButtonGoToLogin';
-import ButtonRegister from '../../Buttons/ButtonRegister/ButtonRegister';
-import ButtonText from '../../Buttons/ButtonText/ButtonText';
+import { styled } from '@mui/system';
 //Redux
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks/hooks';
 import {
@@ -110,6 +114,22 @@ function CardSignup() {
     dispatch(register(formData));
   };
 
+  const StyledStack = styled(Stack)(() => ({
+    padding: '66px 0px',
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: '36px',
+  }));
+
+  const StyledTypography = styled(Typography)(() => ({
+    fontFamily: 'Rubik',
+    fontWeight: 400,
+    fontSize: '18px',
+    lineHeight: '26px',
+    textAlign: 'center',
+    color: '#5a6171',
+  }));
+
   if (hasAccount && !user) {
     return (
       <CardAuth>
@@ -131,12 +151,12 @@ function CardSignup() {
           <CardTitle title="Your account is ready!" />
         </CardHeader>
         <CardBody>
-          <div className={styles.final}>
+          <StyledStack flexDirection={'column'}>
             <Mail />
-            <p className={styles.verifyText}>
+            <StyledTypography>
               Please verify your email and continue to Roundrush!
-            </p>
-          </div>
+            </StyledTypography>
+          </StyledStack>
         </CardBody>
         <CardFooter>
           <Link to="/auth/login">
@@ -172,7 +192,8 @@ function CardSignup() {
               value={password}
               onChange={handleChangeUser}
             />
-            <ButtonNext
+            <ButtonPrimary
+              text={'next'}
               onClick={handleNameAndPassword}
               isValid={!isEmpty(name) && !isEmpty(password)}
             />
@@ -215,7 +236,6 @@ function CardSignup() {
                 shrink: true,
               }}
             />
-
             <TextField
               select={true}
               label="Industry"
@@ -279,7 +299,8 @@ function CardSignup() {
             value={email}
             onChange={handleChangeUser}
           />
-          <ButtonNext
+          <ButtonPrimary
+            text={'next'}
             onClick={handleCheckEmailValidaity}
             isValid={isEmail(email)}
           />

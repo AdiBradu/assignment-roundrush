@@ -40,7 +40,7 @@ export const WorkspaceInfo = () => {
         <Typography
           variant="h6"
           color={'#31394E'}
-          sx={{ marginBottom: '51px' }}
+          sx={{ marginBottom: '40px' }}
         >
           Info
         </Typography>

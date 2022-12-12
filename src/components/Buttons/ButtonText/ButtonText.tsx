@@ -1,15 +1,23 @@
 import React from 'react';
-import styles from './ButtonText.module.css';
+//Material UI
+import { Button } from '@mui/material';
+import { styled } from '@mui/material/styles';
 
 interface ButtonTextProps {
   text: string;
   onClick?: (event: React.MouseEvent) => void;
 }
 
+const StyledButton = styled(Button)(() => ({
+  fontFamily: 'Rubik',
+  fontWeight: 400,
+  fontSize: '14px',
+  lineHeight: '20px',
+  color: '#4c84ff',
+  textTransform: 'none',
+  padding: 0,
+}));
+
 export default function ButtonText({ text, onClick }: ButtonTextProps) {
-  return (
-    <p className={styles.buttonText} onClick={onClick}>
-      {text}
-    </p>
-  );
+  return <StyledButton onClick={onClick}>{text}</StyledButton>;
 }

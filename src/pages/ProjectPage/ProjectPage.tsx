@@ -1,17 +1,14 @@
-import React, { useState } from 'react';
 //Material UI
 import { Stack, Box } from '@mui/system';
-import { Divider } from '@mui/material';
 //Components
 import { Navigation } from '../../components/Drawers/Navigation/Navigation';
 import { PageHeader } from '../../components/PageHeader/PageHeader';
 import { ObjectiveDrawer } from '../../components/Drawers/ObjectiveDrawer/ObjectiveDrawer';
+import { ObjectivesLayout } from '../../components/Objectives/ObjectivesLayout/ObjectivesLayout';
+import { ObjectivesHeader } from '../../components/Objectives/ObjectivesHeader/ObjectivesHeader';
+import { ObjectivesTable } from '../../components/Objectives/ObjectivesTable/ObjectivesTable';
 
 const ProjectPage = () => {
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const handleIsDrawerOpen = () => {
-    setIsDrawerOpen(!isDrawerOpen);
-  };
   return (
     <Box sx={{ display: 'flex', width: '100%', height: '100%' }}>
       <Navigation />
@@ -26,21 +23,13 @@ const ProjectPage = () => {
       >
         <Stack flexDirection={'column'} sx={{ height: '100%' }}>
           <PageHeader />
-          <Box
-            sx={{
-              display: 'flex',
-              background: '#424242',
-              width: '100%',
-              height: '100%',
-              position: 'relative',
-            }}
-          >
-            <Box
-              sx={{ width: '100%', height: '24px', background: '#000' }}
-              onClick={handleIsDrawerOpen}
-            ></Box>
-            <ObjectiveDrawer isDrawerOpen={isDrawerOpen} />
-          </Box>
+          <ObjectivesLayout>
+            <Stack flexDirection={'column'} sx={{ width: '100%', gap: '32px' }}>
+              <ObjectivesHeader />
+              <ObjectivesTable />
+            </Stack>
+            <ObjectiveDrawer />
+          </ObjectivesLayout>
         </Stack>
       </Box>
     </Box>

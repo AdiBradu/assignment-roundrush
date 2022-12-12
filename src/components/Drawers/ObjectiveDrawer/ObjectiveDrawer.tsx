@@ -1,21 +1,21 @@
-import React, { useState } from 'react';
-//Components
-import { MenuToggler } from '../../MenuToggler/MenuToggler';
 //Material UI
-import { Drawer, Box } from '@mui/material';
+import { Drawer, Stack } from '@mui/material';
+import { styled, Theme, CSSObject } from '@mui/material/styles';
+//Components
+import { ObjectiveDrawerController } from './ObjectiveDrawerController';
+import { DividerHorizontal } from '../../Reusable/Dividers/DividerHorizontal';
+import { ObjectiveDrawerContent } from './ObjectiveDrawerContent';
+import { ObjectiveDrawerCheckmarks } from './ObjectiveDrawerCheckmarks';
 //Redux
-import { useAppDispatch } from '../../../redux/hooks/hooks';
-import { reset } from '../../../redux/features/auth/authSlice';
+import { useAppSelector } from '../../../redux/hooks/hooks';
 //Hardcoded data
 import theme from '../../../styles/themeCustomization';
 
-interface ObjectiveDrawerProps {
-  isDrawerOpen: boolean;
-}
+const drawerWidth = '500px';
 
-const drawerWidth = '200px';
+export const ObjectiveDrawer = () => {
+  const isDrawerOpen = useAppSelector((state) => state.drawer.isDrawerOpen);
 
-export const ObjectiveDrawer = ({ isDrawerOpen }: ObjectiveDrawerProps) => {
   return (
     <Drawer
       variant="permanent"
@@ -25,15 +25,25 @@ export const ObjectiveDrawer = ({ isDrawerOpen }: ObjectiveDrawerProps) => {
       PaperProps={{
         sx: {
           width: isDrawerOpen ? drawerWidth : 0,
+          display: isDrawerOpen ? 'flex' : 'none',
           background: '#fff',
           elevation: 0,
-
+          borderTopLeftRadius: '6px',
+          borderBottomLeftRadius: '6px',
+          padding: 0,
           transition: theme.transitions.create('width', {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.enteringScreen,
           }),
         },
       }}
-    ></Drawer>
+    >
+      <Stack flexDirection={'column'}>
+        <ObjectiveDrawerController />
+        <DividerHorizontal />
+        <ObjectiveDrawerContent />
+        <ObjectiveDrawerCheckmarks />
+      </Stack>
+    </Drawer>
   );
 };

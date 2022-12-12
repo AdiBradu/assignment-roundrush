@@ -4,7 +4,6 @@ import CardHeader from '../CardHeader/CardHeader';
 import CardBody from '../CardBody/CardBody';
 import CardFooter from '../CardFooter/CardFooter';
 import CardTitle from '../CardTitle/CardTitle';
-import ButtonLogin from '../../Buttons/ButtonLogin/ButtonLogin';
 import InputNoLabel from '../../Inputs/InputNoLabel/InputNoLabel';
 import ButtonText from '../../Buttons/ButtonText/ButtonText';
 import { Link } from 'react-router-dom';
@@ -12,6 +11,8 @@ import { Link } from 'react-router-dom';
 import { useAppDispatch } from '../../../redux/hooks/hooks';
 import { login, reset } from '../../../redux/features/auth/authSlice';
 import { fetchUsers } from '../../../redux/features/users/usersSlice';
+//components
+import ButtonPrimary from '../../../components/Buttons/ButtonPrimary/ButtonPrimary';
 
 const CardLogin = () => {
   const [credentials, setCredentials] = useState({ email: '', password: '' });
@@ -59,7 +60,11 @@ const CardLogin = () => {
             onChange={handleChange}
           />
           <Link to="/workspace/info" state={{ data: 'Space Settings' }}>
-            <ButtonLogin onClick={handleLogin} />
+            <ButtonPrimary
+              text={'log in'}
+              onClick={handleLogin}
+              isValid={true}
+            />
           </Link>
         </form>
       </CardBody>

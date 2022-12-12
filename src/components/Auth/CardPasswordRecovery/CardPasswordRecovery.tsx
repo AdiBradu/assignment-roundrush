@@ -1,4 +1,5 @@
 import { useState } from 'react';
+//Components
 import CardAuth from '../CardAuth/CardAuth';
 import CardTitle from '../CardTitle/CardTitle';
 import CardSubtitle from '../CardSubtitle/CardSubtitle';
@@ -7,9 +8,9 @@ import CardBody from '../CardBody/CardBody';
 import CardFooter from '../CardFooter/CardFooter';
 import { AuthStatus } from '../AuthStatus/AuthStatus';
 import InputNoLabel from '../../Inputs/InputNoLabel/InputNoLabel';
-import ButtonPasswordRecovery from '../../Buttons/ButtonPasswordRecovery/ButtonPasswordRecovery';
 import ButtonText from '../../Buttons/ButtonText/ButtonText';
-import { ButtonDone } from '../../Buttons/ButtonDone/ButtonDone';
+import ButtonPrimary from '../../Buttons/ButtonPrimary/ButtonPrimary';
+//Router
 import { Link } from 'react-router-dom';
 //Redux
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks/hooks';
@@ -67,20 +68,23 @@ function CardPasswordRecovery() {
         </CardHeader>
 
         <CardBody>
-          <InputNoLabel
-            name="password"
-            type="password"
-            placeholder="Password"
-            value={password}
-            autoComplete="off"
-            onChange={handleChange}
-          />
-          <Link to="/auth/login">
-            <ButtonPasswordRecovery
-              onClick={handleResetPassword}
-              isValid={!isEmpty(password)}
+          <form autoComplete="off">
+            <InputNoLabel
+              name="password"
+              type="password"
+              placeholder="Password"
+              value={password}
+              autoComplete="off"
+              onChange={handleChange}
             />
-          </Link>
+            <Link to="/auth/login">
+              <ButtonPrimary
+                text={'recover your password'}
+                onClick={handleResetPassword}
+                isValid={!isEmpty(password)}
+              />
+            </Link>
+          </form>
         </CardBody>
       </CardAuth>
     );
@@ -94,35 +98,38 @@ function CardPasswordRecovery() {
       </CardHeader>
 
       <CardBody>
-        {isEmail(email) && hasAccount === true ? (
-          <AuthStatus
-            error={false}
-            message={`Well done, we'll email you with a reset link.`}
+        <form autoComplete="off">
+          {isEmail(email) && hasAccount === true ? (
+            <AuthStatus
+              error={false}
+              message={`Well done, we'll email you with a reset link.`}
+            />
+          ) : isEmail(email) && hasAccount === false ? (
+            <AuthStatus
+              error={true}
+              message={`Your email is not an account in Roundrush`}
+            />
+          ) : (
+            <></>
+          )}
+          <InputNoLabel
+            name="email"
+            type="email"
+            placeholder="your email"
+            value={email}
+            autoComplete="off"
+            onChange={handleChange}
           />
-        ) : isEmail(email) && hasAccount === false ? (
-          <AuthStatus
-            error={true}
-            message={`Your email is not an account in Roundrush`}
-          />
-        ) : (
-          <></>
-        )}
-        <InputNoLabel
-          name="email"
-          type="email"
-          placeholder="your email"
-          value={email}
-          autoComplete="off"
-          onChange={handleChange}
-        />
-        {hasAccount ? (
-          <ButtonDone onClick={handleDone} isValid={true} />
-        ) : (
-          <ButtonPasswordRecovery
-            onClick={handleClick}
-            isValid={isEmail(email)}
-          />
-        )}
+          {hasAccount ? (
+            <ButtonPrimary text={'done'} onClick={handleDone} isValid={true} />
+          ) : (
+            <ButtonPrimary
+              text={'recover your password'}
+              onClick={handleClick}
+              isValid={isEmail(email)}
+            />
+          )}
+        </form>
       </CardBody>
 
       <CardFooter>

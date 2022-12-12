@@ -65,7 +65,7 @@ const publicRoutes: Routes[] = [
       { index: true, element: <AuthPage /> },
       { index: false, path: 'login', element: <AuthPage /> },
       { index: false, path: 'sign-up', element: <AuthPage /> },
-      { index: false, path: 'recovery-password', element: <AuthPage /> },
+      { index: false, path: 'password-recovery', element: <AuthPage /> },
     ],
   },
   {

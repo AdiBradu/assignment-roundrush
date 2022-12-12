@@ -1,19 +1,12 @@
 //Material UI
 import { Stack } from '@mui/system';
-import { Typography, Box, Divider } from '@mui/material';
-//Media
-import { ReactComponent as Bell } from '../../assets/icons/bell.svg';
-import { ReactComponent as Only } from '../../assets/icons/only.svg';
-import { ReactComponent as OnlyYellow } from '../../assets/icons/onlyyellow.svg';
-import { ReactComponent as Conference } from '../../assets/icons/conference.svg';
-
-//Router
-import { useLocation } from 'react-router-dom';
+import { Box } from '@mui/material';
+//Components
+import { PageHeaderLeft } from './PageHeaderLeft';
+import { PageHeaderRight } from './PageHeaderRight';
+import { DividerHorizontal } from '../Reusable/Dividers/DividerHorizontal';
 
 export const PageHeader = () => {
-  const location = useLocation();
-  const isProjectPage = location.pathname.includes('/projects') ? true : false;
-
   return (
     <Box sx={{ position: 'sticky', top: 0, background: '#fff', zIndex: 1000 }}>
       <Stack
@@ -24,22 +17,10 @@ export const PageHeader = () => {
           borderBottom: '0.5px solid rgba(255,255,255,0.5)',
         }}
       >
-        <Stack sx={{ gap: '24px', flexDirection: 'row' }}>
-          <Typography variant="pageheading">{location.state?.data}</Typography>
-          <Conference />
-        </Stack>
-
-        <Box>
-          <Stack direction={'row'} sx={{ gap: '24px', alignItems: 'center' }}>
-            {isProjectPage ? <OnlyYellow /> : <Bell />}
-            <Only />
-          </Stack>
-        </Box>
+        <PageHeaderLeft />
+        <PageHeaderRight />
       </Stack>
-      <Divider
-        orientation="horizontal"
-        sx={{ height: '0.5px', background: 'rgba(255,255,255,0.5)' }}
-      />
+      <DividerHorizontal />
     </Box>
   );
 };

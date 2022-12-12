@@ -1,10 +1,4 @@
 export const customStyles = {
-  stylesPageBackground: {
-    background: '#fff',
-    width: '100%',
-    height: '100%',
-    position: 'relative',
-  },
   stylesHorizontalDivider: {
     background: 'rgba(255,255,255,0.5)',
     height: '0.5px',

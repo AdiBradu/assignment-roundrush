@@ -1,6 +1,7 @@
 //Material UI
+import { styled } from '@mui/system';
 import { Stack } from '@mui/material';
-import { styled } from '@mui/material/styles';
+
 interface CardFooterProps {
   children?: JSX.Element | JSX.Element[];
 }
@@ -12,6 +13,6 @@ const StyledStack = styled(Stack)(() => ({
   justifyContent: 'center',
 }));
 
-export default function CardFooter({ children }: CardFooterProps) {
+export const CardFooter: React.FC<CardFooterProps> = ({ children }) => {
   return <StyledStack flexDirection={'row'}>{children}</StyledStack>;
-}
+};

@@ -20,7 +20,7 @@ const StyledStack = styled(Stack)(() => ({
   padding: '24px',
 }));
 
-export const ObjectiveDrawerContent = () => {
+export const ObjectiveDrawerContent: React.FC = () => {
   return (
     <StyledStack flexDirection={'column'}>
       <ObjectiveDrawerContentTitle />
@@ -28,16 +28,11 @@ export const ObjectiveDrawerContent = () => {
       <ObjectiveDrawerContentSlot
         labelComponent={<ObjectiveDrawerContentSubtitle subtitle="priority" />}
         dataComponent={
-          <ObjectiveDrawerContentSlotBody
-            icon={<High />}
-            text={'high priority'}
-          />
+          <ObjectiveDrawerContentSlotBody icon={<High />} text={'high priority'} />
         }
       />
       <ObjectiveDrawerContentSlot
-        labelComponent={
-          <ObjectiveDrawerContentSubtitle subtitle="subproject" />
-        }
+        labelComponent={<ObjectiveDrawerContentSubtitle subtitle="subproject" />}
         dataComponent={
           <ObjectiveDrawerContentSlotBody icon={<Folder />} text={'Webapp'} />
         }
@@ -47,9 +42,7 @@ export const ObjectiveDrawerContent = () => {
         dataComponent={<ObjectiveDrawerContentChips />}
       />
       <ObjectiveDrawerContentSlot
-        labelComponent={
-          <ObjectiveDrawerContentSubtitle subtitle="linked projects" />
-        }
+        labelComponent={<ObjectiveDrawerContentSubtitle subtitle="linked projects" />}
         dataComponent={
           <ObjectiveDrawerContentSlotBody
             text={getRandomDate().toLocaleDateString('en-US')}

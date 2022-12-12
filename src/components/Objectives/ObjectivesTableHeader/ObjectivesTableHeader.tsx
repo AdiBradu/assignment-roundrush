@@ -33,15 +33,9 @@ const StyledRow = styled(TableRow)(() => ({
   height: '30px',
 }));
 
-const headerRestCells = [
-  'priority',
-  'status',
-  'assignees',
-  'due date',
-  'checkmarks',
-];
+const headerRestCells = ['priority', 'status', 'assignees', 'due date', 'checkmarks'];
 
-export const ObjectivesTableHeader = () => {
+export const ObjectivesTableHeader: React.FC = () => {
   return (
     <TableHead>
       <StyledRow>

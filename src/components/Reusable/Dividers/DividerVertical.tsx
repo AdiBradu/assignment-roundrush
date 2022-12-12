@@ -3,10 +3,10 @@ import { Divider } from '@mui/material';
 import { styled } from '@mui/system';
 
 const StyledDivider = styled(Divider)(() => ({
-  height: '0.5px',
   background: 'rgba(255,255,255,0.5)',
+  width: '0.5px',
 }));
 
-export const DividerHorizontal: React.FC = () => {
-  return <StyledDivider orientation="horizontal" />;
+export const DividerVertical: React.FC = () => {
+  return <StyledDivider orientation="vertical" />;
 };

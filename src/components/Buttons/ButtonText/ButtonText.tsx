@@ -18,6 +18,6 @@ const StyledButton = styled(Button)(() => ({
   padding: 0,
 }));
 
-export default function ButtonText({ text, onClick }: ButtonTextProps) {
+export const ButtonText: React.FC<ButtonTextProps> = ({ text, onClick }) => {
   return <StyledButton onClick={onClick}>{text}</StyledButton>;
-}
+};

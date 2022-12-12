@@ -16,6 +16,6 @@ const StyledButton = styled(Button)(() => ({
   },
 }));
 
-export const ButtonIcon = ({ icon, onClick }: ButtonIconProps) => {
+export const ButtonIcon: React.FC<ButtonIconProps> = ({ icon, onClick }) => {
   return <StyledButton onClick={onClick}>{icon}</StyledButton>;
 };

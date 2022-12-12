@@ -15,8 +15,8 @@ const StyledTypography = styled(Typography)(() => ({
   textTransform: 'capitalize',
 }));
 
-export const ObjectiveDrawerContentSubtitle = ({
-  subtitle,
-}: ObjectiveDrawerContentSubtitleProps) => {
+export const ObjectiveDrawerContentSubtitle: React.FC<
+  ObjectiveDrawerContentSubtitleProps
+> = ({ subtitle }) => {
   return <StyledTypography>{subtitle}</StyledTypography>;
 };

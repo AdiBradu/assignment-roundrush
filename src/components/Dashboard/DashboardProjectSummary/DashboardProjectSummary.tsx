@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 //Material UI
-import { Stack, Box } from '@mui/system';
-import { Typography } from '@mui/material';
+import { Typography, Stack, Box } from '@mui/material';
 import { ButtonGoToProject } from '../../Buttons/ButtonGoToProject/ButtonGoToProject';
+import { styled } from '@mui/system';
 //Components
 import { TableProject } from '../Tables/TableProject';
 //Types
@@ -11,13 +11,14 @@ import { ProjectTableRow } from '../../../types/types';
 import { Link } from 'react-router-dom';
 //Redux
 import { useAppSelector } from '../../../redux/hooks/hooks';
+
 interface DashboardProjectSummaryProps {
   rows: ProjectTableRow[];
 }
 
-export const DashboardProjectSummary = ({
+export const DashboardProjectSummary: React.FC<DashboardProjectSummaryProps> = ({
   rows,
-}: DashboardProjectSummaryProps) => {
+}) => {
   const id = useAppSelector((state) => state.project.user?.company.bs);
   const users = useAppSelector((state) => state.user.users);
   const [project, setProject] = useState(users[0].company.bs);
@@ -28,26 +29,30 @@ export const DashboardProjectSummary = ({
     }
   }, [id]);
 
+  const StyledBox = styled(Box)(() => ({
+    width: '40%',
+    padding: '40px 50px 40px 40px',
+  }));
+
+  const StyledStack = styled(Stack)(() => ({
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginTop: '12px',
+    marginBottom: '50px',
+  }));
+
   return (
-    <Box sx={{ width: '40%', padding: '40px 50px 40px 40px' }}>
-      <Stack
-        flexDirection={'row'}
-        sx={{
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          marginTop: '12px',
-          marginBottom: '50px',
-        }}
-      >
+    <StyledBox>
+      <StyledStack flexDirection={'row'}>
         <Typography variant="projectTitle">{project}</Typography>
         <Link to={`/projects/${id}`} state={{ data: 'Objectives' }}>
           <ButtonGoToProject />
         </Link>
-      </Stack>
+      </StyledStack>
       <Stack sx={{ gap: '30px' }}>
         <TableProject rows={rows} tableTitle={'Todos'} />
         <TableProject rows={rows} tableTitle={'Reviews Pending'} />
       </Stack>
-    </Box>
+    </StyledBox>
   );
 };

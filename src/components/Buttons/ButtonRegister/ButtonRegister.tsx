@@ -6,7 +6,7 @@ interface BUTTON_LOGIN {
   isValid?: boolean;
 }
 
-const ButtonRegister = ({ onClick, isValid }: BUTTON_LOGIN) => {
+export const ButtonRegister: React.FC<BUTTON_LOGIN> = ({ onClick, isValid }) => {
   return (
     <Button
       fullWidth
@@ -19,5 +19,3 @@ const ButtonRegister = ({ onClick, isValid }: BUTTON_LOGIN) => {
     </Button>
   );
 };
-
-export default ButtonRegister;

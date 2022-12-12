@@ -1,5 +1,5 @@
 //Material UI
-import { Button, Typography, Stack } from '@mui/material';
+import { Stack } from '@mui/material';
 import { styled } from '@mui/system';
 //Components
 import { ObjectivesHeaderLeft } from '../ObjectivesHeaderLeft/ObjectivesHeaderLeft';
@@ -11,7 +11,7 @@ const StyledStack = styled(Stack)(() => ({
   marginTop: '50px',
 }));
 
-export const ObjectivesHeader = () => {
+export const ObjectivesHeader: React.FC = () => {
   return (
     <StyledStack flexDirection={'row'}>
       <ObjectivesHeaderLeft />

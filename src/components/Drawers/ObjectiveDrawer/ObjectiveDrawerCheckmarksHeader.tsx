@@ -3,7 +3,7 @@ import { Stack, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 //Media
 import { ReactComponent as Add } from '../../../assets/icons/add.svg';
-//components
+//Components
 import { ButtonIcon } from '../../Buttons/ButtonIcon/ButtonIcon';
 
 const StyledLayout = styled(Stack)(() => ({
@@ -23,11 +23,11 @@ const StyledTypography = styled(Typography)(() => ({
   color: '#4C84FF',
 }));
 
-export const ObjectiveDrawerCheckmarksHeader = () => {
+export const ObjectiveDrawerCheckmarksHeader: React.FC = () => {
   return (
     <StyledLayout flexDirection={'row'}>
       <StyledTypography>checkmarks</StyledTypography>
-      <Add />
+      <ButtonIcon icon={<Add />} />
     </StyledLayout>
   );
 };

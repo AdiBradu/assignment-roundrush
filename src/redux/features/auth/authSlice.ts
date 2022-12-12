@@ -50,9 +50,7 @@ export const register = createAsyncThunk(
       return await authService.register(user);
     } catch (error: any) {
       const message: Message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
+        (error.response && error.response.data && error.response.data.message) ||
         error.message ||
         error.toString();
       return thunkAPI.rejectWithValue(message);
@@ -68,9 +66,7 @@ export const checkEmailValidity = createAsyncThunk(
       return await authService.checkEmailValidity(email);
     } catch (error: any) {
       const message: Message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
+        (error.response && error.response.data && error.response.data.message) ||
         error.message ||
         error.toString();
       return thunkAPI.rejectWithValue(message);
@@ -85,9 +81,7 @@ export const login = createAsyncThunk(
       return await authService.login(credentials);
     } catch (error: any) {
       const message: Message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
+        (error.response && error.response.data && error.response.data.message) ||
         error.message ||
         error.toString();
       return thunkAPI.rejectWithValue(message);
@@ -156,18 +150,15 @@ const authSlice = createSlice({
         state.hasAccount = action.payload;
         state.isLoggedIn = null;
       })
-      .addCase(
-        checkEmailValidity.rejected,
-        (state, action: PayloadAction<any>) => {
-          state.isLoading = false;
-          state.isError = true;
-          state.isSuccess = false;
-          state.user = null;
-          state.message = action.payload;
-          state.hasAccount = null;
-          state.isLoggedIn = null;
-        },
-      )
+      .addCase(checkEmailValidity.rejected, (state, action: PayloadAction<any>) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.isSuccess = false;
+        state.user = null;
+        state.message = action.payload;
+        state.hasAccount = null;
+        state.isLoggedIn = null;
+      })
       .addCase(login.pending, (state) => {
         state.isLoading = true;
         state.isError = false;

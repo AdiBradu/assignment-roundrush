@@ -18,8 +18,6 @@ const StyleTypography = styled(Typography)(() => ({
   marginTop: '26px',
 }));
 
-function AuthMessage({ message }: AuthMessageProps) {
+export const AuthMessage: React.FC<AuthMessageProps> = ({ message }) => {
   return <StyleTypography textAlign={'center'}>{message}</StyleTypography>;
-}
-
-export default AuthMessage;
+};

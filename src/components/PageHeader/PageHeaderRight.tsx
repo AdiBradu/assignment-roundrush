@@ -14,7 +14,7 @@ import { ButtonUpgrade } from '../Buttons/ButtonUpgrade/ButtonUpgrade';
 import { ButtonIteration } from '../Buttons/ButtonIteration/ButtonIteration';
 import { ButtonIcon } from '../Buttons/ButtonIcon/ButtonIcon';
 
-export const PageHeaderRight = () => {
+export const PageHeaderRight: React.FC = () => {
   const location = useLocation();
   const isProjectPage = location.pathname.includes('/projects') ? true : false;
 

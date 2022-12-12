@@ -17,7 +17,7 @@ const StyledStack = styled(Stack)(() => ({
   gap: '24px',
 }));
 
-export const ObjectiveDrawerController = () => {
+export const ObjectiveDrawerController: React.FC = () => {
   const dispatch = useAppDispatch();
   const handleOnClick = () => {
     dispatch(closeDrawer());

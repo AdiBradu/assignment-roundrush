@@ -9,13 +9,50 @@ import {
   InputLabel,
   Stack,
 } from '@mui/material';
-//Styles
-import styles from './WorkspaceInfo.module.css';
-import { customStyles } from '../../../styles/styles';
+import { styled } from '@mui/system';
 //Media
 import Person from '../../../assets/images/ProfilePictureAdrianBradu.png';
 
-export const WorkspaceInfo = () => {
+const StyledInputLabel = styled(InputLabel)(() => ({
+  color: '#ADB0B8',
+  position: 'relative',
+  fontFamily: 'Rubik',
+  fontWeight: 400,
+  fontSize: '12px',
+  lineHeight: '14px',
+  marginLeft: '8px',
+  marginBottom: '12px',
+}));
+
+const StyledAvatar = styled(Avatar)(() => ({
+  width: '33.33px',
+  height: '33.33px',
+}));
+
+const StyledTypography = styled(Typography)(() => ({
+  fontFamily: 'Rubik',
+  fontSize: '14px',
+  fontWeight: 500,
+  lineHeight: '18x',
+  color: 'rgba(49, 57, 78, 0.5)',
+  textTransform: 'uppercase',
+  margin: '36px 0px',
+}));
+
+const StyledEm = styled('em')(() => ({
+  color: '#000',
+}));
+
+const StyledTitle = styled(Typography)(() => ({
+  marginBottom: '40px',
+  color: '#31394E',
+  fontFamily: 'Rubik',
+  fontSize: '24px',
+  fontWeight: 400,
+  lineHeight: '28x',
+}));
+
+export const WorkspaceInfo: React.FC = () => {
   const [info, setInfo] = useState({
     fullname: 'Adrian Bradu',
     username: 'adrian.bradu',
@@ -35,32 +72,13 @@ export const WorkspaceInfo = () => {
   };
 
   return (
-    <Box sx={{ padding: '0px 50px' }}>
+    <Box sx={{ padding: '0px 50px', width: '85%' }}>
       <Stack>
-        <Typography
-          variant="h6"
-          color={'#31394E'}
-          sx={{ marginBottom: '40px' }}
-        >
-          Info
-        </Typography>
+        <StyledTitle>Info</StyledTitle>
         <form>
           <Stack>
-            <InputLabel
-              sx={{
-                color: '#ADB0B8',
-                position: 'relative',
-                fontFamily: 'Rubik',
-                fontWeight: 400,
-                fontSize: '12px',
-                lineHeight: '14px',
-                marginLeft: '8px',
-                marginBottom: '12px',
-              }}
-            >
-              Avatar
-            </InputLabel>
-            <Avatar sx={customStyles.avatarInfo} src={Person} />
+            <StyledInputLabel>Avatar</StyledInputLabel>
+            <StyledAvatar src={Person} />
           </Stack>
           <TextField
             label="Full Name"
@@ -101,19 +119,7 @@ export const WorkspaceInfo = () => {
             }}
             sx={{ width: '523px' }}
           />
-          <Typography
-            sx={{
-              fontFamily: 'Rubik',
-              fontSize: '14px',
-              fontWeight: 500,
-              lineHeight: '18x',
-              color: 'rgba(49, 57, 78, 0.5)',
-              textTransform: 'uppercase',
-              margin: '36px 0px',
-            }}
-          >
-            prefernces
-          </Typography>
+          <StyledTypography>prefernces</StyledTypography>
           <TextField
             select={true}
             label="Language"
@@ -122,7 +128,7 @@ export const WorkspaceInfo = () => {
             value={language}
             onChange={handleChange}
             SelectProps={{
-              renderValue: () => <em className={styles.em}>{language}</em>,
+              renderValue: () => <StyledEm>{language}</StyledEm>,
             }}
             sx={{ width: '172px' }}
           >

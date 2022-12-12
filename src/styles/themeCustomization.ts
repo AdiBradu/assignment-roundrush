@@ -1,4 +1,4 @@
-import { AlertTitleClassKey, createTheme } from '@mui/material';
+import { createTheme } from '@mui/material';
 import '@mui/material/styles/createPalette';
 
 declare module '@mui/material/styles' {
@@ -166,16 +166,6 @@ const theme = createTheme({
             lineHeight: '12px',
             color: '#0079FF',
             textAlign: 'center',
-          },
-        },
-        {
-          props: { variant: 'goToProject' },
-          style: {
-            fontFamily: 'Rubik',
-            fontSize: '12px',
-            fontWeight: 400,
-            lineHeight: '14.22px',
-            color: '#838895',
           },
         },
         {
@@ -378,6 +368,8 @@ const theme = createTheme({
         root: {
           input: {
             color: '#000',
+            fontSize: '14px',
+            lineHeight: '20px',
           },
           '& label': {
             transform: 'none',

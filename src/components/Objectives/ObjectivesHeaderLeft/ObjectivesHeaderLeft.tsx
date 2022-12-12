@@ -12,7 +12,7 @@ const StyledStack = styled(Stack)(() => ({
   alignItems: 'center',
 }));
 
-export const ObjectivesHeaderLeft = () => {
+export const ObjectivesHeaderLeft: React.FC = () => {
   return (
     <StyledStack flexDirection={'row'}>
       <InputSearch />

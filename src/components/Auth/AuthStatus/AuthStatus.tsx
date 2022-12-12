@@ -29,7 +29,7 @@ const StyledTypography = styled(Typography)<AuthMessageProps>(({ error }) => ({
   color: error ? '#fd5461' : '#29c293',
 }));
 
-export const AuthStatus = ({ error, message }: AuthMessageProps) => {
+export const AuthStatus: React.FC<AuthMessageProps> = ({ error, message }) => {
   return (
     <StyledStack flexDirection={'row'}>
       {error ? <WarningSign /> : <SuccesSign />}

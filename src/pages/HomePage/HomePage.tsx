@@ -1,7 +1,3 @@
-import React from 'react';
-
-function HomePage() {
+export const HomePage: React.FC = () => {
   return <div>HomePage</div>;
-}
-
-export default HomePage;
+};

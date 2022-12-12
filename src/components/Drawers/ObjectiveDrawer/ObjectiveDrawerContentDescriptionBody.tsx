@@ -14,8 +14,8 @@ const StyledTypography = styled(Typography)(() => ({
   color: 'rgba(21, 27, 38, 0.5)',
 }));
 
-export const ObjectiveDrawerContentDescriptionBody = ({
-  body,
-}: ObjectiveDrawerContentDescriptionBodyProps) => {
+export const ObjectiveDrawerContentDescriptionBody: React.FC<
+  ObjectiveDrawerContentDescriptionBodyProps
+> = ({ body }) => {
   return <StyledTypography>{body}</StyledTypography>;
 };

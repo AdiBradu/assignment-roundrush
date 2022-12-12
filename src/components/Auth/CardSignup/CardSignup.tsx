@@ -2,16 +2,15 @@ import { useState, useEffect } from 'react';
 //Media
 import { ReactComponent as Mail } from '../../../assets/icons/Mail.svg';
 //Components
-import CardAuth from '../CardAuth/CardAuth';
-import CardHeader from '../CardHeader/CardHeader';
-import CardBody from '../CardBody/CardBody';
-import CardFooter from '../CardFooter/CardFooter';
-import CardTitle from '../CardTitle/CardTitle';
-import CardSubtitle from '../CardSubtitle/CardSubtitle';
-import ButtonPrimary from '../../Buttons/ButtonPrimary/ButtonPrimary';
-import ButtonGoToLogin from '../../Buttons/ButtonGoToLogin/ButtonGoToLogin';
-import ButtonRegister from '../../Buttons/ButtonRegister/ButtonRegister';
-import ButtonText from '../../Buttons/ButtonText/ButtonText';
+import { CardAuth } from '../CardAuth/CardAuth';
+import { CardHeader } from '../CardHeader/CardHeader';
+import { CardBody } from '../CardBody/CardBody';
+import { CardFooter } from '../CardFooter/CardFooter';
+import { CardTitle } from '../CardTitle/CardTitle';
+import { CardSubtitle } from '../CardSubtitle/CardSubtitle';
+import { ButtonPrimary } from '../../Buttons/ButtonPrimary/ButtonPrimary';
+import { ButtonRegister } from '../../Buttons/ButtonRegister/ButtonRegister';
+import { ButtonText } from '../../Buttons/ButtonText/ButtonText';
 //Material UI
 import {
   TextField,
@@ -30,7 +29,7 @@ import {
   register,
   reset,
 } from '../../../redux/features/auth/authSlice';
-//Routing
+//Router
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 //Form Validator
@@ -138,7 +137,7 @@ function CardSignup() {
           <CardSubtitle subtitle={`Your email is an account in Roundrush`} />
         </CardHeader>
         <CardBody>
-          <ButtonGoToLogin onClick={handleGoToLogin} />
+          <ButtonText text={'go to login'} onClick={handleGoToLogin} />
         </CardBody>
       </CardAuth>
     );

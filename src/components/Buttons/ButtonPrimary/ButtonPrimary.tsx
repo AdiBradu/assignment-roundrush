@@ -26,11 +26,11 @@ const StyledButton = styled(Button)((color) => ({
   },
 }));
 
-const ButtonPrimary = ({
+export const ButtonPrimary: React.FC<BUTTON_PASSWORD_RECOVERY> = ({
   onClick,
   isValid,
   text,
-}: BUTTON_PASSWORD_RECOVERY) => {
+}) => {
   return (
     <StyledButton
       fullWidth
@@ -42,5 +42,3 @@ const ButtonPrimary = ({
     </StyledButton>
   );
 };
-
-export default ButtonPrimary;

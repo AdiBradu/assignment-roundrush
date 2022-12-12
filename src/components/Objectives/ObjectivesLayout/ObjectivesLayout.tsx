@@ -18,7 +18,7 @@ const StyledStack = styled(Stack)(() => ({
   width: '100%',
 }));
 
-export const ObjectivesLayout = ({ children }: ObjectivesLayoutProps) => {
+export const ObjectivesLayout: React.FC<ObjectivesLayoutProps> = ({ children }) => {
   return (
     <StyledBox>
       <StyledStack flexDirection={'row'}>{children}</StyledStack>

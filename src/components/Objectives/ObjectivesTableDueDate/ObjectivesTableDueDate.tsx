@@ -17,8 +17,8 @@ const StyledTypography = styled(Typography)(() => ({
   textAlign: 'center',
 }));
 
-export const ObjectivesTableDueDate = ({
+export const ObjectivesTableDueDate: React.FC<ObjectivesTableDueDateProps> = ({
   date,
-}: ObjectivesTableDueDateProps) => {
+}) => {
   return <StyledTypography>{date}</StyledTypography>;
 };

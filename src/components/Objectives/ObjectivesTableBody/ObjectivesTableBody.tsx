@@ -50,7 +50,7 @@ const StyledRestCell = styled(TableCell)(() => ({
   },
 }));
 
-export const ObjectivesTableBody = () => {
+export const ObjectivesTableBody: React.FC = () => {
   const rows = useAppSelector((state) => state.user.users);
   const dispatch = useAppDispatch();
 
@@ -87,9 +87,7 @@ export const ObjectivesTableBody = () => {
           </StyledRestCell>
           <StyledRestCell align="center">
             <ObjectivesTableDueDate
-              date={
-                objectives[index].checkmarks && objectives[index].checkmarks
-              }
+              date={objectives[index].checkmarks && objectives[index].checkmarks}
             />
           </StyledRestCell>
         </StyledRow>

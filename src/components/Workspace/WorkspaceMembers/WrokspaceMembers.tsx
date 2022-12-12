@@ -1,9 +1,8 @@
-//Styles
-import { customStyles } from '../../../styles/styles';
 //Material UI
-import { Stack } from '@mui/system';
+import { styled } from '@mui/system';
 import {
   Box,
+  Stack,
   Typography,
   Avatar,
   Paper,
@@ -21,7 +20,27 @@ import { ReactComponent as More } from '../../../assets/icons/more_horizontal.sv
 //Redux
 import { useAppSelector } from '../../../redux/hooks/hooks';
 
-export const WrokspaceMembers = () => {
+const StyledTitle = styled(Typography)(() => ({
+  marginBottom: '40px',
+  color: '#31394E',
+  fontFamily: 'Rubik',
+  fontSize: '24px',
+  fontWeight: 400,
+  lineHeight: '28x',
+}));
+
+const StyledTableCell = styled(TableCell)(() => ({
+  color: 'rgba(49, 57, 78, 0.5)',
+  textTransform: 'uppercase',
+  borderBottom: 0,
+}));
+
+const StyledAvatar = styled(Avatar)(() => ({
+  width: '20px',
+  height: '20px',
+}));
+
+export const WrokspaceMembers: React.FC = () => {
   const { users } = useAppSelector((state) => state.user);
 
   function createData(
@@ -58,32 +77,17 @@ export const WrokspaceMembers = () => {
   );
 
   return (
-    <Box sx={{ padding: '0px 50px', width: '100%' }}>
+    <Box sx={{ padding: '0px 50px', width: '85%' }}>
       <Stack sx={{ height: '100%' }}>
-        <Typography
-          variant="h6"
-          color={'#31394E'}
-          sx={{ marginBottom: '40px' }}
-        >
-          Users on plan
-        </Typography>
+        <StyledTitle>Users on plan</StyledTitle>
         <TableContainer sx={{ maxHeight: '100%' }} component={Paper}>
-          <Table
-            stickyHeader
-            sx={{ minWidth: '100%' }}
-            aria-label="simple table"
-          >
+          <Table stickyHeader sx={{ minWidth: '100%' }} aria-label="simple table">
             <TableHead>
               <TableRow sx={{ borderBottom: 0 }}>
-                <TableCell sx={customStyles.tableHeader}>Name</TableCell>
-                <TableCell sx={customStyles.tableHeader}>Email</TableCell>
-                <TableCell align="center" sx={customStyles.tableHeader}>
-                  Status
-                </TableCell>
-                <TableCell
-                  align="center"
-                  sx={customStyles.tableHeader}
-                ></TableCell>
+                <StyledTableCell>Name</StyledTableCell>
+                <StyledTableCell>Email</StyledTableCell>
+                <StyledTableCell align="center">Status</StyledTableCell>
+                <StyledTableCell align="center"></StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -91,42 +95,27 @@ export const WrokspaceMembers = () => {
                 <TableRow
                   key={row.name}
                   sx={{
-                    '&:last-child td, &:last-child th': { border: 0 },
                     opacity: row.status ? 1 : 0.5,
                     backgroundColor: row.status ? 'transparent' : '#EAEBED',
                   }}
                 >
                   <TableCell component="th" scope="row">
                     <Stack flexDirection={'row'} sx={{ alignItems: 'center' }}>
-                      <Avatar src={Person} sx={customStyles.avatarTable} />
-                      <Typography variant="tableCellName">
-                        {row.name}
-                      </Typography>
-                      {row.isOwner ? (
-                        <Chip variant="owner" label="OWNER" />
-                      ) : (
-                        <></>
-                      )}
+                      <StyledAvatar src={Person} />
+                      <Typography variant="tableCellName">{row.name}</Typography>
+                      {row.isOwner ? <Chip variant="owner" label="OWNER" /> : <></>}
                     </Stack>
                   </TableCell>
                   <TableCell>
-                    <Typography variant="tableCellEmail">
-                      {row.email}
-                    </Typography>
+                    <Typography variant="tableCellEmail">{row.email}</Typography>
                   </TableCell>
                   <TableCell align="center">
                     {row.status ? (
-                      <Typography
-                        variant="tableCellStatus"
-                        sx={{ color: '#29C293' }}
-                      >
+                      <Typography variant="tableCellStatus" sx={{ color: '#29C293' }}>
                         Active
                       </Typography>
                     ) : (
-                      <Typography
-                        variant="tableCellStatus"
-                        sx={{ color: '#FD5461' }}
-                      >
+                      <Typography variant="tableCellStatus" sx={{ color: '#FD5461' }}>
                         Inactive
                       </Typography>
                     )}

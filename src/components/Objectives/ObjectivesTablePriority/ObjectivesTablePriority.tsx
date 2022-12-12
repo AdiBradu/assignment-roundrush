@@ -31,10 +31,10 @@ const StyledStack = styled(Stack)(() => ({
   height: '100%',
 }));
 
-export const ObjectivesTablePriority = ({
+export const ObjectivesTablePriority: React.FC<ObjectivesTablePriorityProps> = ({
   priority,
   color,
-}: ObjectivesTablePriorityProps) => {
+}) => {
   return (
     <React.Fragment>
       {priority ? (

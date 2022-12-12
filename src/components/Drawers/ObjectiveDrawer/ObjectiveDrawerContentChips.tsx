@@ -10,7 +10,7 @@ const StyledStack = styled(Stack)(() => ({
   gap: '7px',
 }));
 
-export const ObjectiveDrawerContentChips = () => {
+export const ObjectiveDrawerContentChips: React.FC = () => {
   return (
     <StyledStack flexDirection={'row'}>
       {assignees.map((assignee) => (

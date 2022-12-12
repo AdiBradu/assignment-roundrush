@@ -33,10 +33,10 @@ const StyledAvatar = styled(Avatar)(() => ({
   height: '20px',
 }));
 
-export const ObjectiveDrawerContentChip = ({
+export const ObjectiveDrawerContentChip: React.FC<ObjectiveDrawerContentChipProps> = ({
   fullname,
   avatar,
-}: ObjectiveDrawerContentChipProps) => {
+}) => {
   const handleDelete = () => {
     console.info('You clicked the delete icon.');
   };

@@ -23,7 +23,7 @@ const StyledStack = styled(Stack)(() => ({
   display: 'inline-flex',
 }));
 
-export const ObjectivesTableAssignees = () => {
+export const ObjectivesTableAssignees: React.FC = () => {
   return (
     <StyledStack flexDirection={'row'}>
       {assignees.map((assignee) => (

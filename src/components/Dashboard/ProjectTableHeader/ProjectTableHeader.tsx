@@ -1,7 +1,7 @@
 //Material UI
 import { TableCell, TableHead, TableRow } from '@mui/material';
 
-export const ProjectTableHeader = () => {
+export const ProjectTableHeader: React.FC = () => {
   return (
     <TableHead>
       <TableRow

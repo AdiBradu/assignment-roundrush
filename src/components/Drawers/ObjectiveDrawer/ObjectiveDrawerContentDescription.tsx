@@ -9,7 +9,7 @@ const StyledStack = styled(Stack)(() => ({
   gap: '14px',
 }));
 
-export const ObjectiveDrawerContentDescription = () => {
+export const ObjectiveDrawerContentDescription: React.FC = () => {
   return (
     <StyledStack flexDirection={'column'}>
       <ObjectiveDrawerContentSubtitle subtitle={'description'} />

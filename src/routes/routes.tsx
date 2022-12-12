@@ -1,9 +1,8 @@
-import WorkspacePage from '../pages/Workspace/WorkspacePage';
-import DashboardPage from '../pages/DashboardPage/DashboardPage';
-import NoPage from '../pages/404Page/404Page';
-import AuthPage from '../pages/AuthPage/AuthPage';
-import ProjectPage from '../pages/ProjectPage/ProjectPage';
-import { Outlet } from 'react-router-dom';
+import { WorkspacePage } from '../pages/Workspace/WorkspacePage';
+import { DashboardPage } from '../pages/DashboardPage/DashboardPage';
+import { NoPage } from '../pages/404Page/404Page';
+import { AuthPage } from '../pages/AuthPage/AuthPage';
+import { ProjectPage } from '../pages/ProjectPage/ProjectPage';
 
 interface Routes {
   path: string;

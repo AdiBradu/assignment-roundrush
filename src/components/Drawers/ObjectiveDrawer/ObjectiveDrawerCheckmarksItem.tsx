@@ -39,9 +39,9 @@ const StyledChekbox = styled(Checkbox)(() => ({
   color: '#B9B9B9',
 }));
 
-export const ObjectiveDrawerCheckmarksItem = ({
-  name,
-}: ObjectiveDrawerCheckmarksItemProps) => {
+export const ObjectiveDrawerCheckmarksItem: React.FC<
+  ObjectiveDrawerCheckmarksItemProps
+> = ({ name }) => {
   return (
     <StyledStack flexDirection={'row'}>
       <StyledTypography>{name}</StyledTypography>

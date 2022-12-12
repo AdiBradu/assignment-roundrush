@@ -1,6 +1,6 @@
 import React from 'react';
 //Material UI
-import { Typography, Stack } from '@mui/material';
+import { Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 const StyledTypography = styled(Typography)(() => ({
@@ -12,6 +12,6 @@ const StyledTypography = styled(Typography)(() => ({
   textTransform: 'capitalize',
 }));
 
-export const ObjectiveDrawerContentTitle = () => {
+export const ObjectiveDrawerContentTitle: React.FC = () => {
   return <StyledTypography>Notification Center</StyledTypography>;
 };

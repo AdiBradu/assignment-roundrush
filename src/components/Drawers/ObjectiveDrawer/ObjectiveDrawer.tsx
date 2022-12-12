@@ -1,6 +1,5 @@
 //Material UI
 import { Drawer, Stack } from '@mui/material';
-import { styled, Theme, CSSObject } from '@mui/material/styles';
 //Components
 import { ObjectiveDrawerController } from './ObjectiveDrawerController';
 import { DividerHorizontal } from '../../Reusable/Dividers/DividerHorizontal';
@@ -13,7 +12,7 @@ import theme from '../../../styles/themeCustomization';
 
 const drawerWidth = '500px';
 
-export const ObjectiveDrawer = () => {
+export const ObjectiveDrawer: React.FC = () => {
   const isDrawerOpen = useAppSelector((state) => state.drawer.isDrawerOpen);
 
   return (

@@ -1,5 +1,6 @@
 //Material UI
 import { Typography, TableBody, TableCell, TableRow } from '@mui/material';
+import { styled } from '@mui/system';
 //Types
 import { ProjectTableRow } from '../../../types/types';
 
@@ -7,18 +8,18 @@ interface ProjectTableBodyProps {
   data: ProjectTableRow[];
 }
 
-export const ProjectTableBody = ({ data }: ProjectTableBodyProps) => {
-  const cellStyles = {
-    padding: 0,
-    lineHeight: '100%',
-  };
+const StyledCell = styled(TableCell)(() => ({
+  padding: 0,
+  lineHeight: '100%',
+}));
 
-  const lastCell = {
-    padding: 0,
-    lineHeight: '100%',
-    textAlign: 'right',
-  };
+const StyledLastCell = styled(TableCell)(() => ({
+  padding: 0,
+  lineHeight: '100%',
+  textAlign: 'right',
+}));
 
+export const ProjectTableBody: React.FC<ProjectTableBodyProps> = ({ data }) => {
   return (
     <TableBody>
       {data.map((el: ProjectTableRow) => (
@@ -29,17 +30,15 @@ export const ProjectTableBody = ({ data }: ProjectTableBodyProps) => {
             width: '100%',
           }}
         >
-          <TableCell sx={cellStyles}>{el.priority}</TableCell>
-          <TableCell sx={cellStyles}>{el.issue}</TableCell>
-          <TableCell sx={cellStyles}>
+          <StyledCell>{el.priority}</StyledCell>
+          <StyledCell>{el.issue}</StyledCell>
+          <StyledCell>
             <Typography variant="tableRowId">{el.id}</Typography>
-          </TableCell>
-          <TableCell sx={cellStyles}>
-            <Typography variant="tableRowDescription">
-              {el.description}
-            </Typography>
-          </TableCell>
-          <TableCell sx={lastCell}>{el.label}</TableCell>
+          </StyledCell>
+          <StyledCell>
+            <Typography variant="tableRowDescription">{el.description}</Typography>
+          </StyledCell>
+          <StyledLastCell>{el.label}</StyledLastCell>
         </TableRow>
       ))}
     </TableBody>

@@ -19,6 +19,6 @@ const StyledButton = styled(Button)(() => ({
   },
 }));
 
-export const ButtonMilestones = () => {
+export const ButtonMilestones: React.FC = () => {
   return <StyledButton>Milestones</StyledButton>;
 };

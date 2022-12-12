@@ -1,10 +1,10 @@
 import { Button } from '@mui/material';
 
-interface BUTTON_DONE {
+interface BUTTON_SAVE {
   onClick?: (event: React.MouseEvent) => void;
 }
 
-export const ButtonSave = ({ onClick }: BUTTON_DONE) => {
+export const ButtonSave: React.FC<BUTTON_SAVE> = ({ onClick }) => {
   return (
     <Button variant="save" disableElevation onClick={onClick}>
       Save

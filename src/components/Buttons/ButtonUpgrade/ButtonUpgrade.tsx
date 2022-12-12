@@ -22,7 +22,7 @@ const StyledTypography = styled(Typography)(() => ({
   textTransform: 'capitalize',
 }));
 
-export const ButtonUpgrade = () => {
+export const ButtonUpgrade: React.FC = () => {
   return (
     <StyledButton startIcon={<Rocket />}>
       <StyledTypography>upgrade</StyledTypography>

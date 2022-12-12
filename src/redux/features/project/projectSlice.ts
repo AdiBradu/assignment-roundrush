@@ -29,9 +29,7 @@ export const fetchProject = createAsyncThunk(
       return await projectService.setProject(id);
     } catch (error: any) {
       const message: Message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
+        (error.response && error.response.data && error.response.data.message) ||
         error.message ||
         error.toString();
       return thunkAPI.rejectWithValue(message);

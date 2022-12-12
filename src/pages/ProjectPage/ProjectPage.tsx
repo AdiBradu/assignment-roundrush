@@ -1,5 +1,5 @@
 //Material UI
-import { Stack, Box } from '@mui/system';
+import { Stack } from '@mui/material';
 //Components
 import { Navigation } from '../../components/Drawers/Navigation/Navigation';
 import { PageHeader } from '../../components/PageHeader/PageHeader';
@@ -7,20 +7,14 @@ import { ObjectiveDrawer } from '../../components/Drawers/ObjectiveDrawer/Object
 import { ObjectivesLayout } from '../../components/Objectives/ObjectivesLayout/ObjectivesLayout';
 import { ObjectivesHeader } from '../../components/Objectives/ObjectivesHeader/ObjectivesHeader';
 import { ObjectivesTable } from '../../components/Objectives/ObjectivesTable/ObjectivesTable';
+import { PageLayout } from '../../components/Reusable/PageLayout/PageLayout';
+import { PageContent } from '../../components/Reusable/PageContent/PageContent';
 
-const ProjectPage = () => {
+export const ProjectPage: React.FC = () => {
   return (
-    <Box sx={{ display: 'flex', width: '100%', height: '100%' }}>
+    <PageLayout>
       <Navigation />
-      <Box
-        sx={{
-          background: '#fff',
-          width: '100%',
-          height: '100%',
-          position: 'relative',
-          paddingLeft: '50px',
-        }}
-      >
+      <PageContent>
         <Stack flexDirection={'column'} sx={{ height: '100%' }}>
           <PageHeader />
           <ObjectivesLayout>
@@ -31,9 +25,7 @@ const ProjectPage = () => {
             <ObjectiveDrawer />
           </ObjectivesLayout>
         </Stack>
-      </Box>
-    </Box>
+      </PageContent>
+    </PageLayout>
   );
 };
-
-export default ProjectPage;

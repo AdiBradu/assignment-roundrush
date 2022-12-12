@@ -4,8 +4,9 @@ import { MenuToggler } from '../../MenuToggler/MenuToggler';
 import { NavigationItem } from '../../NavigationItem/NavigationItem';
 import { NavigationBottomItems } from '../../NavigationBottomItems/NavigationBottomItems';
 import { TeamsAccordion } from '../../TeamsAccordion/TeamsAccordion';
+import { DividerDrawer } from '../../Reusable/Dividers/DividerDrawer';
 //Material UI
-import { Drawer, List, Divider, Stack } from '@mui/material';
+import { Drawer, List, Stack } from '@mui/material';
 import { styled, Theme, CSSObject } from '@mui/material/styles';
 //Redux
 import { useAppDispatch } from '../../../redux/hooks/hooks';
@@ -53,7 +54,12 @@ const MyDrawer = styled(Drawer, {
   }),
 }));
 
-export const Navigation = () => {
+const StyledStack = styled(Stack)(() => ({
+  justifyContent: 'space-between',
+  height: '100%',
+}));
+
+export const Navigation: React.FC = () => {
   const dispatch = useAppDispatch();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
@@ -61,13 +67,14 @@ export const Navigation = () => {
     setIsDrawerOpen(!isDrawerOpen);
   };
 
-  const handleLogout = () => dispatch(reset());
+  const handleLogout = () => {
+    dispatch(reset());
+  };
 
   return (
     <MyDrawer variant="permanent" open={isDrawerOpen}>
       <List>
         <MenuToggler isDrawerOpen={isDrawerOpen} handleDrawer={handleDrawer} />
-
         {menuItemsTop.map((item) => (
           <NavigationItem
             key={item.text}
@@ -79,26 +86,12 @@ export const Navigation = () => {
         ))}
       </List>
 
-      <Divider
-        sx={{
-          background: 'rgba(255,255,255,0.5)',
-          height: '0.5px',
-          margin: '16px 0px',
-        }}
-      />
-      <Stack
-        sx={{
-          justifyContent: 'space-between',
-          height: '100%',
-        }}
-      >
-        <TeamsAccordion isDrawerOpen={isDrawerOpen} />
+      <DividerDrawer />
 
-        <NavigationBottomItems
-          isDrawerOpen={isDrawerOpen}
-          handleLogout={handleLogout}
-        />
-      </Stack>
+      <StyledStack>
+        <TeamsAccordion isDrawerOpen={isDrawerOpen} />
+        <NavigationBottomItems isDrawerOpen={isDrawerOpen} handleLogout={handleLogout} />
+      </StyledStack>
     </MyDrawer>
   );
 };

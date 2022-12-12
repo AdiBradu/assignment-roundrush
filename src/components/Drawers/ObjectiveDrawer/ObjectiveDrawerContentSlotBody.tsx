@@ -21,10 +21,9 @@ const StyledTypography = styled(Typography)(() => ({
   textTransform: 'capitalize',
 }));
 
-export const ObjectiveDrawerContentSlotBody = ({
-  icon,
-  text,
-}: ObjectiveDrawerContentSlotBodyProps) => {
+export const ObjectiveDrawerContentSlotBody: React.FC<
+  ObjectiveDrawerContentSlotBodyProps
+> = ({ icon, text }) => {
   return (
     <StyledStack flexDirection={'row'}>
       {icon && icon}

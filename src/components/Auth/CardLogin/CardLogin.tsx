@@ -1,20 +1,21 @@
 import { useState } from 'react';
-import CardAuth from '../CardAuth/CardAuth';
-import CardHeader from '../CardHeader/CardHeader';
-import CardBody from '../CardBody/CardBody';
-import CardFooter from '../CardFooter/CardFooter';
-import CardTitle from '../CardTitle/CardTitle';
-import InputNoLabel from '../../Inputs/InputNoLabel/InputNoLabel';
-import ButtonText from '../../Buttons/ButtonText/ButtonText';
+//Components
+import { CardAuth } from '../CardAuth/CardAuth';
+import { CardHeader } from '../CardHeader/CardHeader';
+import { CardBody } from '../CardBody/CardBody';
+import { CardFooter } from '../CardFooter/CardFooter';
+import { CardTitle } from '../CardTitle/CardTitle';
+import { InputNoLabel } from '../../Inputs/InputNoLabel/InputNoLabel';
+import { ButtonText } from '../../Buttons/ButtonText/ButtonText';
+import { ButtonPrimary } from '../../../components/Buttons/ButtonPrimary/ButtonPrimary';
+//Router
 import { Link } from 'react-router-dom';
 //Redux
 import { useAppDispatch } from '../../../redux/hooks/hooks';
 import { login, reset } from '../../../redux/features/auth/authSlice';
 import { fetchUsers } from '../../../redux/features/users/usersSlice';
-//components
-import ButtonPrimary from '../../../components/Buttons/ButtonPrimary/ButtonPrimary';
 
-const CardLogin = () => {
+const CardLogin: React.FC = () => {
   const [credentials, setCredentials] = useState({ email: '', password: '' });
   const { email, password } = credentials;
   const dispatch = useAppDispatch();
@@ -60,11 +61,7 @@ const CardLogin = () => {
             onChange={handleChange}
           />
           <Link to="/workspace/info" state={{ data: 'Space Settings' }}>
-            <ButtonPrimary
-              text={'log in'}
-              onClick={handleLogin}
-              isValid={true}
-            />
+            <ButtonPrimary text={'log in'} onClick={handleLogin} isValid={true} />
           </Link>
         </form>
       </CardBody>

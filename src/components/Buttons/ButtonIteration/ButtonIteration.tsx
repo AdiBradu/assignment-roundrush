@@ -31,10 +31,10 @@ const StyledTypographyTwo = styled(Typography)(() => ({
   fontWeight: 500,
 }));
 
-export const ButtonIteration = () => {
+export const ButtonIteration: React.FC = () => {
   return (
     <StyledButton endIcon={<MoreVertical />}>
-      <Stack sx={{ gap: '8px', flexDirection: 'row' }}>
+      <Stack flexDirection={'row'} sx={{ gap: '8px' }}>
         <StyledTypographyOne>Iteration type: </StyledTypographyOne>
         <StyledTypographyTwo>round</StyledTypographyTwo>
       </Stack>

@@ -11,10 +11,10 @@ const StyledLayout = styled(Stack)(() => ({
   gap: '14px',
 }));
 
-export const ObjectiveDrawerContentSlot = ({
+export const ObjectiveDrawerContentSlot: React.FC<ObjectiveDrawerContentSlotProps> = ({
   labelComponent,
   dataComponent,
-}: ObjectiveDrawerContentSlotProps) => {
+}) => {
   return (
     <StyledLayout>
       {labelComponent}

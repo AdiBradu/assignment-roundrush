@@ -1,28 +1,25 @@
 import { useState } from 'react';
 //Components
-import CardAuth from '../CardAuth/CardAuth';
-import CardTitle from '../CardTitle/CardTitle';
-import CardSubtitle from '../CardSubtitle/CardSubtitle';
-import CardHeader from '../CardHeader/CardHeader';
-import CardBody from '../CardBody/CardBody';
-import CardFooter from '../CardFooter/CardFooter';
+import { CardAuth } from '../CardAuth/CardAuth';
+import { CardTitle } from '../CardTitle/CardTitle';
+import { CardSubtitle } from '../CardSubtitle/CardSubtitle';
+import { CardHeader } from '../CardHeader/CardHeader';
+import { CardBody } from '../CardBody/CardBody';
+import { CardFooter } from '../CardFooter/CardFooter';
 import { AuthStatus } from '../AuthStatus/AuthStatus';
-import InputNoLabel from '../../Inputs/InputNoLabel/InputNoLabel';
-import ButtonText from '../../Buttons/ButtonText/ButtonText';
-import ButtonPrimary from '../../Buttons/ButtonPrimary/ButtonPrimary';
+import { InputNoLabel } from '../../Inputs/InputNoLabel/InputNoLabel';
+import { ButtonText } from '../../Buttons/ButtonText/ButtonText';
+import { ButtonPrimary } from '../../Buttons/ButtonPrimary/ButtonPrimary';
 //Router
 import { Link } from 'react-router-dom';
 //Redux
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks/hooks';
-import {
-  checkEmailValidity,
-  reset,
-} from '../../../redux/features/auth/authSlice';
+import { checkEmailValidity, reset } from '../../../redux/features/auth/authSlice';
 //Validator
 import isEmail from 'validator/lib/isEmail';
 import isEmpty from 'validator/lib/isEmpty';
 
-function CardPasswordRecovery() {
+export const CardPasswordRecovery: React.FC = () => {
   const dispatch = useAppDispatch();
   const { hasAccount, isLoading } = useAppSelector((state) => state.auth);
 
@@ -139,6 +136,6 @@ function CardPasswordRecovery() {
       </CardFooter>
     </CardAuth>
   );
-}
+};
 
 export default CardPasswordRecovery;

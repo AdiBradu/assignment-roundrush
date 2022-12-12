@@ -7,7 +7,6 @@ import { ReactComponent as SearchIcon } from '../../../assets/icons/search.svg';
 const StyledInputSearch = styled(TextField)(() => ({
   borderRadius: '4px',
   backgroundColor: '#fff',
-
   '& .MuiInputBase-root': {
     width: '193px',
     paddingRight: '8px',
@@ -31,7 +30,7 @@ const StyledInputSearch = styled(TextField)(() => ({
   },
 }));
 
-export const InputSearch = () => {
+export const InputSearch: React.FC = () => {
   return (
     <form>
       <StyledInputSearch

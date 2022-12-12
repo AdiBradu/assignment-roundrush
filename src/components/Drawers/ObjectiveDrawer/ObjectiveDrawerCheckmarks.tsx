@@ -10,7 +10,7 @@ const StyledLayout = styled(Stack)(() => ({
   marginTop: '20px',
 }));
 
-export const ObjectiveDrawerCheckmarks = () => {
+export const ObjectiveDrawerCheckmarks: React.FC = () => {
   return (
     <StyledLayout flexDirection={'column'}>
       <ObjectiveDrawerCheckmarksHeader />

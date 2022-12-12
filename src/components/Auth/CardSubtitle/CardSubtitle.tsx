@@ -1,11 +1,19 @@
-import styles from './CardSubtitle.module.css';
+//Material UI
+import { styled } from '@mui/system';
+import { Typography } from '@mui/material';
 
-type CardSubTitleProps = {
+interface CardSubTitleProps {
   subtitle: string;
-};
-
-function CardSubtitle({ subtitle }: CardSubTitleProps) {
-  return <p className={styles.subtitle}>{subtitle}</p>;
 }
 
-export default CardSubtitle;
+const StyledTypography = styled(Typography)(() => ({
+  color: '#5a6171',
+  fontFamily: 'Rubik',
+  fontWeight: 500,
+  fontSize: '14px',
+  lineHeight: '20px',
+}));
+
+export const CardSubtitle: React.FC<CardSubTitleProps> = ({ subtitle }) => {
+  return <StyledTypography>{subtitle}</StyledTypography>;
+};

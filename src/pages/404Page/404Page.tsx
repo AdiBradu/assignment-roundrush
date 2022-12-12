@@ -1,7 +1,3 @@
-import React from 'react';
-
-function NoPage() {
+export const NoPage: React.FC = () => {
   return <div>Ooops 404 Page</div>;
-}
-
-export default NoPage;
+};

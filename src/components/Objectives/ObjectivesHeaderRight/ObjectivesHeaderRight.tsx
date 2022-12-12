@@ -11,7 +11,7 @@ const StyledStack = styled(Stack)(() => ({
   marginRight: '16px',
 }));
 
-export const ObjectivesHeaderRight = () => {
+export const ObjectivesHeaderRight: React.FC = () => {
   return (
     <StyledStack flexDirection={'row'}>
       <ButtonMilestones />

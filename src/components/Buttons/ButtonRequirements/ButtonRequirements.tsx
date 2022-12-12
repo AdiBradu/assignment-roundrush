@@ -17,6 +17,6 @@ const StyledButton = styled(Button)(() => ({
   },
 }));
 
-export const ButtonRequirements = () => {
+export const ButtonRequirements: React.FC = () => {
   return <StyledButton>Requirements</StyledButton>;
 };

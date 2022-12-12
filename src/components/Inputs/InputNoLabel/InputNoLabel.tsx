@@ -1,5 +1,5 @@
 import React from 'react';
-
+//Material UI
 import { OutlinedInput } from '@mui/material';
 
 type InputNoLabelProps = {
@@ -11,17 +11,16 @@ type InputNoLabelProps = {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-const InputNoLabel = ({
+export const InputNoLabel: React.FC<InputNoLabelProps> = ({
   name,
   type,
   placeholder,
   value,
   autoComplete,
   onChange,
-}: InputNoLabelProps) => {
+}) => {
   return (
     <>
-      {/* <Input fullWidth type="text" placeholder="your email" /> */}
       <OutlinedInput
         fullWidth
         name={name}
@@ -34,5 +33,3 @@ const InputNoLabel = ({
     </>
   );
 };
-
-export default InputNoLabel;

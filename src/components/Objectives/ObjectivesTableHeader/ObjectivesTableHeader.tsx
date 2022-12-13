@@ -1,6 +1,8 @@
 //Material UI
 import { TableHead, TableRow, TableCell } from '@mui/material';
 import { styled } from '@mui/system';
+//Keys
+import uniqid from 'uniqid';
 
 const StyledNameCell = styled(TableCell)(() => ({
   fontWeight: 500,
@@ -41,7 +43,9 @@ export const ObjectivesTableHeader: React.FC = () => {
       <StyledRow>
         <StyledNameCell align="left">Name</StyledNameCell>
         {headerRestCells.map((cell) => (
-          <StyledRestCell align="center">{cell}</StyledRestCell>
+          <StyledRestCell key={uniqid()} align="center">
+            {cell}
+          </StyledRestCell>
         ))}
       </StyledRow>
     </TableHead>

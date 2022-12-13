@@ -23,7 +23,7 @@ export const App: React.FC = () => {
             <Routes>
               <Route element={<PrivateRoutes />}>
                 {protectedRoutes.map((route) => (
-                  <Route key={route.path} element={route.element} path={route.path}>
+                  <Route key={uniqid()} element={route.element} path={route.path}>
                     {route.children?.map((route) => (
                       <Route key={uniqid()} element={route.element} path={route.path} />
                     ))}
@@ -31,7 +31,7 @@ export const App: React.FC = () => {
                 ))}
               </Route>
               {publicRoutes.map((route) => (
-                <Route key={route.path} element={route.element} path={route.path}>
+                <Route key={uniqid()} element={route.element} path={route.path}>
                   {route.children?.map((route) => (
                     <Route key={uniqid()} element={route.element} path={route.path} />
                   ))}

@@ -38,6 +38,9 @@ const StyledListItemButton = styled(ListItemButton)(() => ({
   justifyContent: 'center',
   padding: 0,
   gap: '23px',
+  '&:hover': {
+    background: 'transparent',
+  },
 }));
 
 export const WorkspaceMenu: React.FC = () => {
@@ -56,7 +59,7 @@ export const WorkspaceMenu: React.FC = () => {
 
         <StyledListItem>
           <Link to="/workspace/info" state={{ data: 'Space settings' }}>
-            <StyledListItemButton>
+            <StyledListItemButton disableRipple>
               <ListItemIcon sx={{ minWidth: 'auto' }}></ListItemIcon>
               <ListItemText
                 primary={'Info'}
@@ -70,7 +73,7 @@ export const WorkspaceMenu: React.FC = () => {
 
         <StyledListItem>
           <Link to="/workspace/members" state={{ data: 'Space settings' }}>
-            <StyledListItemButton>
+            <StyledListItemButton disableRipple>
               <ListItemIcon sx={{ minWidth: 'auto' }}></ListItemIcon>
               <ListItemText
                 primary={'Members'}

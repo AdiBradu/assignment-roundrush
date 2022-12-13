@@ -5,16 +5,11 @@ import { ButtonGoToProject } from '../components/Buttons/ButtonGoToProject/Butto
 import { ButtonText } from '../components/Buttons/ButtonText/ButtonText';
 import { InputNoLabel } from '../components/Inputs/InputNoLabel/InputNoLabel';
 import { PageLayout } from '../components/Reusable/PageLayout/PageLayout';
-import { TeamsAccordion } from '../components/Navigation/TeamsAccordion/TeamsAccordion';
+import { WorkspaceInfo } from '../components/Workspace/WorkspaceInfo/WorkspaceInfo';
 //Material UI
 import { TextField } from '@mui/material';
-//Routing
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { PrivateRoutes } from '../routes/PrivateRoutes';
 //Utilities
 import { getRandomDate } from '../utils/utils';
-//Hardcoded data
-import { teams } from '../data/teams';
 
 describe('ButtonGoToProject', () => {
   test('renders correctly', () => {
@@ -55,6 +50,36 @@ describe('InputNoLabel', () => {
   });
 });
 
+describe('WorkspaceInfo', () => {
+  test('renders text corectly', () => {
+    render(<WorkspaceInfo />);
+    const textElement = screen.getByText(/info/i);
+    expect(textElement).toBeInTheDocument();
+  });
+  test('renders input correctly', () => {
+    render(<WorkspaceInfo />);
+    const inputElement = screen.getByRole('textbox', {
+      name: /full name/i,
+    });
+    expect(inputElement).toBeInTheDocument();
+  });
+  test('renders input label correctly', () => {
+    render(<WorkspaceInfo />);
+    const labelElement = screen.getByLabelText(/full name/i);
+    expect(labelElement).toBeInTheDocument();
+  });
+  test('renders input placeholder correctly', () => {
+    render(<WorkspaceInfo />);
+    const placeholderElement = screen.getByPlaceholderText(/full name/i);
+    expect(placeholderElement).toBeInTheDocument();
+  });
+  test('renders input value correctly', () => {
+    render(<WorkspaceInfo />);
+    const valueElement = screen.getByDisplayValue(/adrian bradu/i);
+    expect(valueElement).toBeInTheDocument();
+  });
+});
+
 describe('PageLayout', () => {
   test('renders children correctly', () => {
     render(<PageLayout children={<TextField value={'Adrian'} />} />);
@@ -69,11 +94,3 @@ describe('Get Random Date', () => {
     expect(dateElement).toMatch(/(\d{1,2}(\/|-)\d{1,2}(\/|-)\d{2,4})/);
   });
 });
-
-// describe('App', () => {
-//   test('renders routes correctly', () => {
-//     render(<TeamsAccordion isDrawerOpen />);
-//     const listItemElements = screen.getAllByRole('listitem');
-//     expect(listItemElements).toHaveLength(3);
-//   });
-// });

@@ -20,7 +20,9 @@ const StyledStack = styled(Stack)(() => ({
   width: '100%',
 }));
 
-const StyledTypography = styled(Typography)<AuthMessageProps>(({ error }) => ({
+const StyledTypography = styled(Typography, {
+  shouldForwardProp: (prop) => prop !== 'error',
+})<AuthMessageProps>(({ error }) => ({
   fontFamily: 'Rubik',
   fontStyle: 'normal',
   fontWeight: 400,

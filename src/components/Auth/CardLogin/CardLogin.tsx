@@ -15,7 +15,7 @@ import { useAppDispatch } from '../../../redux/hooks/hooks';
 import { login, reset } from '../../../redux/features/auth/authSlice';
 import { fetchUsers } from '../../../redux/features/users/usersSlice';
 
-const CardLogin: React.FC = () => {
+export const CardLogin: React.FC = () => {
   const [credentials, setCredentials] = useState({ email: '', password: '' });
   const { email, password } = credentials;
   const dispatch = useAppDispatch();
@@ -77,5 +77,3 @@ const CardLogin: React.FC = () => {
     </CardAuth>
   );
 };
-
-export default CardLogin;

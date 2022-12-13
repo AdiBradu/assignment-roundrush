@@ -4,9 +4,9 @@ import { Typography } from '@mui/material';
 //Router
 import { useLocation } from 'react-router-dom';
 //Media
-import { ReactComponent as Conference } from '../../assets/icons/conference.svg';
+import { ReactComponent as Conference } from '../../../assets/icons/conference.svg';
 //components
-import { ButtonIcon } from '../Buttons/ButtonIcon/ButtonIcon';
+import { ButtonIcon } from '../../Buttons/ButtonIcon/ButtonIcon';
 
 export const PageHeaderLeft: React.FC = () => {
   const location = useLocation();

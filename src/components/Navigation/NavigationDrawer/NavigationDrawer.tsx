@@ -1,9 +1,9 @@
 import { useState } from 'react';
 //Components
-import { MenuToggler } from '../../MenuToggler/MenuToggler';
-import { NavigationItem } from '../../NavigationItem/NavigationItem';
-import { NavigationBottomItems } from '../../NavigationBottomItems/NavigationBottomItems';
-import { TeamsAccordion } from '../../TeamsAccordion/TeamsAccordion';
+import { MenuToggler } from '../MenuToggler/MenuToggler';
+import { NavigationItem } from '../NavigationItem/NavigationItem';
+import { NavigationBottomItems } from '../NavigationBottomItems/NavigationBottomItems';
+import { TeamsAccordion } from '../TeamsAccordion/TeamsAccordion';
 import { DividerDrawer } from '../../Reusable/Dividers/DividerDrawer';
 //Material UI
 import { Drawer, List, Stack } from '@mui/material';
@@ -59,7 +59,7 @@ const StyledStack = styled(Stack)(() => ({
   height: '100%',
 }));
 
-export const Navigation: React.FC = () => {
+export const NavigationDrawer: React.FC = () => {
   const dispatch = useAppDispatch();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 

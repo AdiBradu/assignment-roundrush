@@ -137,5 +137,3 @@ export const CardPasswordRecovery: React.FC = () => {
     </CardAuth>
   );
 };
-
-export default CardPasswordRecovery;

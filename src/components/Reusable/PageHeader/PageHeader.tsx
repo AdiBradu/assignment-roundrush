@@ -4,7 +4,7 @@ import { styled } from '@mui/system';
 //Components
 import { PageHeaderLeft } from './PageHeaderLeft';
 import { PageHeaderRight } from './PageHeaderRight';
-import { DividerHorizontal } from '../Reusable/Dividers/DividerHorizontal';
+import { DividerHorizontal } from '../Dividers/DividerHorizontal';
 
 const StyledBox = styled(Box)(() => ({
   position: 'sticky',

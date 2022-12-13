@@ -4,7 +4,7 @@ import { Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 interface ButtonTextProps {
-  text: string;
+  text?: string;
   onClick?: (event: React.MouseEvent) => void;
 }
 

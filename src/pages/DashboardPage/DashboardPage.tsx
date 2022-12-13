@@ -1,8 +1,8 @@
 //Material UI
 import { Box, Stack } from '@mui/material';
 //Components
-import { Navigation } from '../../components/Drawers/Navigation/Navigation';
-import { PageHeader } from '../../components/PageHeader/PageHeader';
+import { NavigationDrawer } from '../../components/Navigation/NavigationDrawer/NavigationDrawer';
+import { PageHeader } from '../../components/Reusable/PageHeader/PageHeader';
 import { DashboarFavoriteProjects } from '../../components/Dashboard/DashboardFavoriteProjects/DashboarFavoriteProjects';
 import { DashboardProjectSummary } from '../../components/Dashboard//DashboardProjectSummary/DashboardProjectSummary';
 import { DividerVertical } from '../../components/Reusable/Dividers/DividerVertical';
@@ -14,7 +14,7 @@ import rows from '../../data/projectTableRows';
 export const DashboardPage: React.FC = () => {
   return (
     <PageLayout>
-      <Navigation />
+      <NavigationDrawer />
 
       <PageContent>
         <Stack flexDirection={'column'} sx={{ height: '100%' }}>

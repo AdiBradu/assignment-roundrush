@@ -36,7 +36,7 @@ import { Link } from 'react-router-dom';
 import isEmail from 'validator/lib/isEmail';
 import isEmpty from 'validator/lib/isEmpty';
 
-function CardSignup() {
+export const CardSignup: React.FC = () => {
   const dispatch = useAppDispatch();
   const { hasAccount, user } = useAppSelector((state) => state.auth);
   const navigate = useNavigate();
@@ -307,6 +307,4 @@ function CardSignup() {
       </CardBody>
     </CardAuth>
   );
-}
-
-export default CardSignup;
+};

@@ -2,8 +2,8 @@
 import { ListItemIcon, ListItemButton, ListItem } from '@mui/material';
 import { styled } from '@mui/system';
 //Media
-import { ReactComponent as Roundrush } from '../../assets/icons/RoundrushIcon.svg';
-import { ReactComponent as Menu } from '../../assets/icons/menu.svg';
+import { ReactComponent as Roundrush } from '../../../assets/icons/RoundrushIcon.svg';
+import { ReactComponent as Menu } from '../../../assets/icons/menu.svg';
 
 interface MenuTogglerProps {
   isDrawerOpen: boolean;

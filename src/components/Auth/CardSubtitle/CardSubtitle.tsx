@@ -9,7 +9,7 @@ interface CardSubTitleProps {
 const StyledTypography = styled(Typography)(() => ({
   color: '#5a6171',
   fontFamily: 'Rubik',
-  fontWeight: 500,
+  fontWeight: 400,
   fontSize: '14px',
   lineHeight: '20px',
 }));

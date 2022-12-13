@@ -11,6 +11,8 @@ import { protectedRoutes, publicRoutes } from './routes/routes';
 //Redux
 import { Provider } from 'react-redux';
 import store from './redux/store';
+//Key generator
+import uniqid from 'uniqid';
 
 export const App: React.FC = () => {
   return (
@@ -23,7 +25,7 @@ export const App: React.FC = () => {
                 {protectedRoutes.map((route) => (
                   <Route key={route.path} element={route.element} path={route.path}>
                     {route.children?.map((route) => (
-                      <Route key={route.path} element={route.element} path={route.path} />
+                      <Route key={uniqid()} element={route.element} path={route.path} />
                     ))}
                   </Route>
                 ))}
@@ -31,7 +33,7 @@ export const App: React.FC = () => {
               {publicRoutes.map((route) => (
                 <Route key={route.path} element={route.element} path={route.path}>
                   {route.children?.map((route) => (
-                    <Route key={route.path} element={route.element} path={route.path} />
+                    <Route key={uniqid()} element={route.element} path={route.path} />
                   ))}
                 </Route>
               ))}

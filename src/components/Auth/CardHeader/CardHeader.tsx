@@ -11,6 +11,7 @@ const StyledStack = styled(Stack)(() => ({
   alignItems: 'center',
   marginTop: '16px',
   marginBottom: '51px',
+  gap: '16px',
 }));
 
 export const CardHeader: React.FC<CardHeaderProps> = ({ children }) => {

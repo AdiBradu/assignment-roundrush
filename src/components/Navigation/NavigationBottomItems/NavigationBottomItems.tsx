@@ -2,11 +2,11 @@
 import { ListItemIcon, ListItem, List, Avatar } from '@mui/material';
 import { styled } from '@mui/system';
 //Media
-import { ReactComponent as Exit } from '../../assets/icons/exit.svg';
-import { ReactComponent as Help } from '../../assets/icons/help.svg';
-import Person from '../../assets/images/ProfilePictureAdrianBradu.png';
+import { ReactComponent as Exit } from '../../../assets/icons/exit.svg';
+import { ReactComponent as Help } from '../../../assets/icons/help.svg';
+import Person from '../../../assets/images/ProfilePictureAdrianBradu.png';
 //Components
-import { StyledListItemButton } from '../Reusable/StyledListItemButton/StyledListItemButton';
+import { StyledListItemButton } from '../../Reusable/StyledListItemButton/StyledListItemButton';
 
 interface NavigationBottomItemsProps {
   isDrawerOpen: boolean;

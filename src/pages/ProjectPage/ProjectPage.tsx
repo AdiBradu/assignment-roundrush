@@ -1,9 +1,9 @@
 //Material UI
 import { Stack } from '@mui/material';
 //Components
-import { Navigation } from '../../components/Drawers/Navigation/Navigation';
-import { PageHeader } from '../../components/PageHeader/PageHeader';
-import { ObjectiveDrawer } from '../../components/Drawers/ObjectiveDrawer/ObjectiveDrawer';
+import { NavigationDrawer } from '../../components/Navigation/NavigationDrawer/NavigationDrawer';
+import { PageHeader } from '../../components/Reusable/PageHeader/PageHeader';
+import { ObjectiveDrawer } from '../../components/Navigation/ObjectiveDrawer/ObjectiveDrawer';
 import { ObjectivesLayout } from '../../components/Objectives/ObjectivesLayout/ObjectivesLayout';
 import { ObjectivesHeader } from '../../components/Objectives/ObjectivesHeader/ObjectivesHeader';
 import { ObjectivesTable } from '../../components/Objectives/ObjectivesTable/ObjectivesTable';
@@ -13,7 +13,7 @@ import { PageContent } from '../../components/Reusable/PageContent/PageContent';
 export const ProjectPage: React.FC = () => {
   return (
     <PageLayout>
-      <Navigation />
+      <NavigationDrawer />
       <PageContent>
         <Stack flexDirection={'column'} sx={{ height: '100%' }}>
           <PageHeader />

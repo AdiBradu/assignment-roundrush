@@ -5,9 +5,9 @@ import { styled } from '@mui/system';
 import { ReactComponent as RoundrushLogo } from '../../assets/logo/RoundrushLogo.svg';
 //Components
 import { AuthMessage } from '../../components/Auth/AuthMessage/AuthMessage';
-import CardLogin from '../../components/Auth/CardLogin/CardLogin';
-import CardSignup from '../../components/Auth/CardSignup/CardSignup';
-import CardPasswordRecovery from '../../components/Auth/CardPasswordRecovery/CardPasswordRecovery';
+import { CardLogin } from '../../components/Auth/CardLogin/CardLogin';
+import { CardSignup } from '../../components/Auth/CardSignup/CardSignup';
+import { CardPasswordRecovery } from '../../components/Auth/CardPasswordRecovery/CardPasswordRecovery';
 //Router
 import { useLocation } from 'react-router-dom';
 

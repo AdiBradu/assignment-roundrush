@@ -10,7 +10,14 @@ const StyledStack = styled(Stack)(() => ({
   width: '100%',
   alignItems: 'center',
   marginTop: '20px',
-  justifyContent: 'center',
+  justifyContent: 'space-evenly',
+  '& :nth-of-type(2n)': {
+    display: 'inline-flex',
+    marginLeft: 'auto',
+  },
+  '& :nth-of-type(2n+1)': {
+    display: 'inline-flex',
+  },
 }));
 
 export const CardFooter: React.FC<CardFooterProps> = ({ children }) => {

@@ -1,7 +1,7 @@
 //Material UI
 import { Box, Stack } from '@mui/material';
 //Components
-import { ButtonSave } from '../Buttons/ButtonSave/ButtonSave';
+import { ButtonSave } from '../../Buttons/ButtonSave/ButtonSave';
 
 export const PageFooter: React.FC = () => {
   return (

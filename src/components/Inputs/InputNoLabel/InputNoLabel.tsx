@@ -3,12 +3,12 @@ import React from 'react';
 import { OutlinedInput } from '@mui/material';
 
 type InputNoLabelProps = {
-  name: string;
-  type: string;
-  placeholder: string;
-  value: string;
-  autoComplete: string;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  name?: string;
+  type?: string;
+  placeholder?: string;
+  value?: string;
+  autoComplete?: string;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 export const InputNoLabel: React.FC<InputNoLabelProps> = ({

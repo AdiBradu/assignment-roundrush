@@ -11,12 +11,12 @@ import {
   Stack,
 } from '@mui/material';
 //components
-import { StyledListItemButton } from '../Reusable/StyledListItemButton/StyledListItemButton';
+import { StyledListItemButton } from '../../Reusable/StyledListItemButton/StyledListItemButton';
 //Media
-import { ReactComponent as Member } from '../../assets/icons/member.svg';
-import { ReactComponent as ArrowDown } from '../../assets//icons/arrow-down.svg';
+import { ReactComponent as Member } from '../../../assets/icons/member.svg';
+import { ReactComponent as ArrowDown } from '../../../assets//icons/arrow-down.svg';
 //Hardcoded data
-import { teams, colors } from '../../data/teams';
+import { teams, colors } from '../../../data/teams';
 
 interface TeamsAccordionProps {
   isDrawerOpen: boolean;

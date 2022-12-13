@@ -1,10 +1,10 @@
 //Components
-import { Navigation } from '../../components/Drawers/Navigation/Navigation';
+import { NavigationDrawer } from '../../components/Navigation/NavigationDrawer/NavigationDrawer';
 import { WorkspaceInfo } from '../../components/Workspace/WorkspaceInfo/WorkspaceInfo';
 import { WorkspaceMenu } from '../../components/Workspace/WorkspaceMenu/WorkspaceMenu';
 import { WrokspaceMembers } from '../../components/Workspace/WorkspaceMembers/WrokspaceMembers';
-import { PageHeader } from '../../components/PageHeader/PageHeader';
-import { PageFooter } from '../../components/PageFooter/PageFooter';
+import { PageHeader } from '../../components/Reusable/PageHeader/PageHeader';
+import { PageFooter } from '../../components/Reusable/PageFooter/PageFooter';
 import { DividerVertical } from '../../components/Reusable/Dividers/DividerVertical';
 import { PageLayout } from '../../components/Reusable/PageLayout/PageLayout';
 import { PageContent } from '../../components/Reusable/PageContent/PageContent';
@@ -19,7 +19,7 @@ export const WorkspacePage: React.FC = () => {
 
   return (
     <PageLayout>
-      <Navigation />
+      <NavigationDrawer />
       <PageContent>
         <Stack flexDirection={'column'} sx={{ height: '100%' }}>
           <PageHeader />

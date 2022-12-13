@@ -1,18 +1,18 @@
 import React from 'react';
 //Media
-import { ReactComponent as Bell } from '../../assets/icons/bell.svg';
-import { ReactComponent as Only } from '../../assets/icons/only.svg';
-import { ReactComponent as OnlyYellow } from '../../assets/icons/onlyyellow.svg';
-import { ReactComponent as GoogleCalendar } from '../../assets/logo/logos_google-calendar.svg';
-import { ReactComponent as Slack } from '../../assets/logo/logos_slack-icon.svg';
+import { ReactComponent as Bell } from '../../../assets/icons/bell.svg';
+import { ReactComponent as Only } from '../../../assets/icons/only.svg';
+import { ReactComponent as OnlyYellow } from '../../../assets/icons/onlyyellow.svg';
+import { ReactComponent as GoogleCalendar } from '../../../assets/logo/logos_google-calendar.svg';
+import { ReactComponent as Slack } from '../../../assets/logo/logos_slack-icon.svg';
 //Router
 import { useLocation } from 'react-router-dom';
 //Material UI
 import { Stack } from '@mui/system';
 //Components
-import { ButtonUpgrade } from '../Buttons/ButtonUpgrade/ButtonUpgrade';
-import { ButtonIteration } from '../Buttons/ButtonIteration/ButtonIteration';
-import { ButtonIcon } from '../Buttons/ButtonIcon/ButtonIcon';
+import { ButtonUpgrade } from '../../Buttons/ButtonUpgrade/ButtonUpgrade';
+import { ButtonIteration } from '../../Buttons/ButtonIteration/ButtonIteration';
+import { ButtonIcon } from '../../Buttons/ButtonIcon/ButtonIcon';
 
 export const PageHeaderRight: React.FC = () => {
   const location = useLocation();
